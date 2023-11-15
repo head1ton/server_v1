@@ -70,25 +70,90 @@ include::{snippets}/order-controller-docs/complete/http-response.adoc[]
 
 include::{snippets}/order-controller-docs/complete/response-fields.adoc[]
 
-// ### 주문 내역 확인 (Seller)
-//
-// ==== REQUEST
-//
-// include::{snippets}/order-controller-docs/get-order-by-seller/http-request.adoc[]
-//
-// ==== REQUEST HEADER
-//
-// include::{snippets}/order-controller-docs/get-order-by-seller/request-headers.adoc[]
-//
-// ==== REQUEST PARAMETERS
-//
-// include::{snippets}/order-controller-docs/get-order-by-seller/query-parameters.adoc[]
-//
-// ==== RESPONSE
-//
-// include::{snippets}/order-controller-docs/get-order-by-seller/http-response.adoc[]
-//
-// ==== RESPONSE FIELD
-//
-// include::{snippets}/order-controller-docs/get-order-by-seller/response-fields.adoc[]
-//
+### 주문 내역 확인 (Seller)
+
+==== REQUEST
+
+include::{snippets}/order-controller-docs/get-order-by-seller/http-request.adoc[]
+
+==== REQUEST HEADER
+
+include::{snippets}/order-controller-docs/get-order-by-seller/request-headers.adoc[]
+
+==== REQUEST PARAMETERS
+
+include::{snippets}/order-controller-docs/get-order-by-seller/query-parameters.adoc[]
+
+==== RESPONSE
+
+include::{snippets}/order-controller-docs/get-order-by-seller/http-response.adoc[]
+
+==== RESPONSE FIELD
+
+include::{snippets}/order-controller-docs/get-order-by-seller/response-fields.adoc[]
+
+### 📗 주문 내역 확인 (member)
+
+==== REQUEST
+
+include::{snippets}/order-controller-docs/get-order-by-member/http-request.adoc[]
+
+==== REQUEST HEADER
+
+include::{snippets}/order-controller-docs/get-order-by-member/request-headers.adoc[]
+
+==== REQUEST PARAMETERS
+
+include::{snippets}/order-controller-docs/get-order-by-member/query-parameters.adoc[]
+
+==== RESPONSE
+
+include::{snippets}/order-controller-docs/get-order-by-member/http-response.adoc[]
+
+==== RESPONSE FIELD
+
+include::{snippets}/order-controller-docs/get-order-by-member/response-fields.adoc[]
+
+### 주문 상세 확인 (seller)
+
+==== REQUEST
+
+include::{snippets}/order-controller-docs/get-order-detail-by-seller/http-request.adoc[]
+
+==== REQUEST HEADER
+
+include::{snippets}/order-controller-docs/get-order-detail-by-seller/request-headers.adoc[]
+
+==== REQUEST PARAMETERS
+
+include::{snippets}/order-controller-docs/get-order-detail-by-seller/path-parameters.adoc[]
+
+==== RESPONSE
+
+include::{snippets}/order-controller-docs/get-order-detail-by-seller/http-response.adoc[]
+
+==== RESPONSE FIELD
+
+include::{snippets}/order-controller-docs/get-order-detail-by-seller/response-fields.adoc[]
+
+### 주문 상세 확인 (member)
+
+==== REQUEST
+
+include::{snippets}/order-controller-docs/get-order-detail-by-member/http-request.adoc[]
+
+==== REQUEST HEADER
+
+include::{snippets}/order-controller-docs/get-order-detail-by-member/request-headers.adoc[]
+
+==== REQUEST PARAMETERS
+
+include::{snippets}/order-controller-docs/get-order-detail-by-member/path-parameters.adoc[]
+
+==== RESPONSE
+
+include::{snippets}/order-controller-docs/get-order-detail-by-member/http-response.adoc[]
+
+==== RESPONSE FIELD
+
+include::{snippets}/order-controller-docs/get-order-detail-by-member/response-fields.adoc[]
