@@ -1,0 +1,27 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+:toc: left
+:toclevels: 2
+:toc-title: Server API
+:doctype: docs
+:source-highlighter: highlightjs
+:sectlinks:
+
+===  😱SERVER API 😱
+
+include::feature/new-feature.adoc[]
+
+include::feature/fix-feature.adoc[]
+
+include::error/error.adoc[]
+
+include::common/common.adoc[]
+
+include::member/auth.adoc[]
+
+include::member/member.adoc[]
+
+include::product/product.adoc[]
+
+include::order/order.adoc[]
