@@ -1,6 +1,8 @@
 package ai.serverapi.order.repository.port;
 
 
+import ai.serverapi.member.domain.entity.MemberEntity;
+import ai.serverapi.member.domain.model.Member;
 import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.domain.entity.OrderEntity;
 import ai.serverapi.order.domain.model.Order;
@@ -33,10 +35,11 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Page<OrderVo> findAllBySeller(final Pageable pageable, final String search,
+    public Page<OrderVo> findAll(final Pageable pageable, final String search,
         final OrderStatus status,
-        final Seller seller) {
-        return orderCustomJpaRepository.findAllBySeller(pageable, search, status,
-            SellerEntity.from(seller));
+        final Seller seller,
+        final Member member) {
+        return orderCustomJpaRepository.findAll(pageable, search, status,
+            SellerEntity.from(seller), MemberEntity.from(member));
     }
 }

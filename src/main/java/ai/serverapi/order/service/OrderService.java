@@ -6,6 +6,7 @@ import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderInfoResponse;
 import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
+import ai.serverapi.order.controller.vo.OrderVo;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Pageable;
 
@@ -24,4 +25,9 @@ public interface OrderService {
 
     OrderResponse getOrderListBySeller(Pageable pageable, String search, String status,
         HttpServletRequest request);
+
+    OrderResponse getOrderListByMember(Pageable pageable, String search, String status,
+        HttpServletRequest request);
+
+    OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request);
 }

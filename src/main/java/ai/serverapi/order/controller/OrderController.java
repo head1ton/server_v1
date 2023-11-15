@@ -8,6 +8,7 @@ import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderInfoResponse;
 import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
+import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.service.OrderService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -84,4 +85,28 @@ public class OrderController {
                 orderService.getOrderListBySeller(pageable, search, status, request))
         );
     }
+
+    @GetMapping("/member")
+    public ResponseEntity<Api<OrderResponse>> getOrderByMember(
+        @PageableDefault(size = 10, page = 0) Pageable pageable,
+        @RequestParam(required = false, name = "search") String search,
+        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+        HttpServletRequest request) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderListByMember(pageable, search, status, request))
+        );
+    }
+
+    @GetMapping("/member/{order_id}")
+    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
+        @PathVariable(name = "order_id") Long orderId,
+        HttpServletRequest request
+    ) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderDetailByMember(orderId, request))
+        );
+    }
+
 }

@@ -1,5 +1,6 @@
 package ai.serverapi.order.repository.port;
 
+import ai.serverapi.member.domain.model.Member;
 import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.domain.model.Order;
 import ai.serverapi.order.enums.OrderStatus;
@@ -13,6 +14,6 @@ public interface OrderRepository {
 
     Order findById(Long orderId);
 
-    Page<OrderVo> findAllBySeller(Pageable pageable, String search, OrderStatus status,
-        Seller seller);
+    Page<OrderVo> findAll(Pageable pageable, String search, OrderStatus status,
+        Seller seller, Member member);
 }

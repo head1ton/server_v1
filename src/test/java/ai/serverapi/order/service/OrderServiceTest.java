@@ -15,6 +15,7 @@ import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
+import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.repository.DeliveryJpaRepository;
 import ai.serverapi.order.repository.OrderItemJpaRepository;
 import ai.serverapi.order.repository.OrderJpaRepository;
@@ -31,6 +32,7 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
@@ -135,19 +137,19 @@ class OrderServiceTest {
         assertThat(completeOrderResponse.getOrderNumber()).isNotNull();
     }
 
-//    @Test
-//    @DisplayName("관리자툴에서 주문 불러오기 성공")
-//    @Transactional
-//    void getOrderList() {
-//
-//        request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
-//
-//        Pageable pageable = Pageable.ofSize(10);
-//        OrderResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
-//            request);
-//
-//        System.out.println("complete = " + complete.getTotalElements());
-//
-//        assertThat(complete.getTotalElements()).isGreaterThan(1);
-//    }
+    @Test
+    @DisplayName("관리자툴에서 주문 불러오기 성공")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void getOrderList() {
+
+        request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
+
+        Pageable pageable = Pageable.ofSize(10);
+        OrderVo orderDetail = orderService.getOrderDetailByMember(ORDER_FIRST_ID, request);
+
+        assertThat(orderDetail).isNotNull();
+    }
 }
