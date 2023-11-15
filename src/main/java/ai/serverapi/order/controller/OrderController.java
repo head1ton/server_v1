@@ -86,6 +86,17 @@ public class OrderController {
         );
     }
 
+    @GetMapping("/seller/{order_id}")
+    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
+        @PathVariable(name = "order_id") Long orderId,
+        HttpServletRequest request
+    ) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderDetailBySeller(orderId, request))
+        );
+    }
+
     @GetMapping("/member")
     public ResponseEntity<Api<OrderResponse>> getOrderByMember(
         @PageableDefault(size = 10, page = 0) Pageable pageable,
@@ -99,7 +110,7 @@ public class OrderController {
     }
 
     @GetMapping("/member/{order_id}")
-    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
+    public ResponseEntity<Api<OrderVo>> getOrderDetailByMember(
         @PathVariable(name = "order_id") Long orderId,
         HttpServletRequest request
     ) {
