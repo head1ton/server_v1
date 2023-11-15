@@ -1,7 +1,9 @@
 package ai.serverapi.order.controller;
 
 import ai.serverapi.global.base.Api;
+import ai.serverapi.global.base.MessageVo;
 import ai.serverapi.global.base.ResultCode;
+import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
@@ -117,6 +119,18 @@ public class OrderController {
         return ResponseEntity.ok(
             new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
                 orderService.getOrderDetailByMember(orderId, request))
+        );
+    }
+
+    @PatchMapping("/member/cancel")
+    public ResponseEntity<Api<MessageVo>> cancelOrder(
+        @RequestBody @Validated CancelOrderRequest cancelOrderRequest,
+        HttpServletRequest request) {
+        orderService.cancelOrder(cancelOrderRequest, request);
+
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                MessageVo.builder().message("주문이 취소되었습니다.").build())
         );
     }
 

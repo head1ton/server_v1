@@ -11,6 +11,7 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 import ai.serverapi.member.repository.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
+import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
@@ -19,6 +20,7 @@ import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.domain.entity.OrderEntity;
+import ai.serverapi.order.enums.OrderItemStatus;
 import ai.serverapi.order.enums.OrderStatus;
 import ai.serverapi.order.repository.DeliveryJpaRepository;
 import ai.serverapi.order.repository.OrderItemJpaRepository;
@@ -190,8 +192,14 @@ class OrderServiceTest {
     void cancelOrder() {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
         OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
-        orderService.cancelOrder(ORDER_FIRST_ID, request);
+        CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
+                                                                  .build();
+
+        orderService.cancelOrder(cancelOrderRequest, request);
 
         assertThat(orderEntity.getStatus()).isEqualTo(OrderStatus.CANCEL);
+
+        orderEntity.getOrderItemList().forEach(orderItemEntity -> assertThat(
+            orderItemEntity.getStatus()).isEqualTo(OrderItemStatus.CANCEL));
     }
 }

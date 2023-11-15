@@ -26,6 +26,7 @@ import ai.serverapi.RestdocsBaseTest;
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.repository.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
+import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
@@ -959,6 +960,34 @@ class OrderControllerDocs extends RestdocsBaseTest {
                                                                        .type(JsonFieldType.STRING),
                 fieldWithPath("data.delivery.recipient_tel").description("수령인 전화번호")
                                                             .type(JsonFieldType.STRING)
+            )
+        ));
+    }
+
+    @Test
+    @DisplayName(PREFIX + "/member/cancel (PATCH)")
+    void cancelOrder() throws Exception {
+        CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
+                                                                  .build();
+
+        ResultActions perform = mock.perform(
+            patch(PREFIX + "/member/cancel")
+                .header(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken())
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(objectMapper.writeValueAsString(cancelOrderRequest))
+        );
+
+        perform.andDo(docs.document(
+            requestHeaders(
+                headerWithName(AUTHORIZATION).description("access token (MEMBER 권한 이상)")
+            ),
+            requestFields(
+                fieldWithPath("order_id").description("주문 id").type(JsonFieldType.NUMBER)
+            ),
+            responseFields(
+                fieldWithPath("code").type(JsonFieldType.STRING).description("결과 코드"),
+                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                fieldWithPath("data.message").type(JsonFieldType.STRING).description("결과 메세지")
             )
         ));
     }
