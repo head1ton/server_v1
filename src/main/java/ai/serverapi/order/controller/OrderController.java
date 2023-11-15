@@ -84,4 +84,17 @@ public class OrderController {
                 orderService.getOrderListBySeller(pageable, search, status, request))
         );
     }
+
+    @GetMapping("/member")
+    public ResponseEntity<Api<OrderResponse>> getOrderByMember(
+        @PageableDefault(size = 10, page = 0) Pageable pageable,
+        @RequestParam(required = false, name = "search") String search,
+        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+        HttpServletRequest request) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderListByMember(pageable, search, status, request))
+        );
+    }
+
 }

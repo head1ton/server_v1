@@ -102,6 +102,9 @@ public class SellerEntity {
     }
 
     public static SellerEntity from(Seller seller) {
+        if (seller == null) {
+            return null;
+        }
         SellerEntity sellerEntity = new SellerEntity();
         sellerEntity.id = seller.getId();
         sellerEntity.member = MemberEntity.from(seller.getMember());

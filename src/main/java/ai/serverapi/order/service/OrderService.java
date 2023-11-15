@@ -24,4 +24,7 @@ public interface OrderService {
 
     OrderResponse getOrderListBySeller(Pageable pageable, String search, String status,
         HttpServletRequest request);
+
+    OrderResponse getOrderListByMember(Pageable pageable, String search, String status,
+        HttpServletRequest request);
 }
