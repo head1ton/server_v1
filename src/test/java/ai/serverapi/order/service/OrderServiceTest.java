@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 import ai.serverapi.member.repository.MemberJpaRepository;
-import ai.serverapi.member.repository.SellerJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
@@ -22,6 +21,7 @@ import ai.serverapi.order.repository.OrderJpaRepository;
 import ai.serverapi.product.repository.CategoryJpaRepository;
 import ai.serverapi.product.repository.OptionJpaRepository;
 import ai.serverapi.product.repository.ProductJpaRepository;
+import ai.serverapi.product.repository.SellerJpaRepository;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;

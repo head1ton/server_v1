@@ -1,6 +1,6 @@
 package ai.serverapi.order.controller.vo;
 
-import ai.serverapi.order.domain.model.OrderItem;
+import ai.serverapi.order.domain.entity.OrderEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -14,12 +14,26 @@ import lombok.Getter;
 @JsonInclude(Include.NON_NULL)
 public class OrderVo {
 
-    private Long orderId;
-    private String orderNumber;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
-    private MemberVo member;
-    private List<OrderItem> orderItemList;
-    private DeliveryVo delivery;
+    private final Long orderId;
+    private final String orderNumber;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime modifiedAt;
+    private final MemberVo member;
+    private final List<OrderItemVo> orderItemList;
+    private final DeliveryVo delivery;
 
+    public OrderVo(final OrderEntity orderEntity) {
+        this.orderId = orderEntity.getId();
+        this.orderNumber = orderEntity.getOrderNumber();
+        this.createdAt = orderEntity.getCreatedAt();
+        this.modifiedAt = orderEntity.getModifiedAt();
+        this.member = MemberVo.fromMemberEntity(orderEntity.getMember());
+        this.orderItemList = orderEntity.getOrderItemList().stream().map(OrderItemVo::from)
+                                        .toList();
+        this.delivery =
+            orderEntity.getDeliveryList().stream().map(DeliveryVo::fromDeliveryEntity).toList()
+                       .size() > 0 ?
+                orderEntity.getDeliveryList().stream().map(DeliveryVo::fromDeliveryEntity).toList()
+                           .get(0) : null;
+    }
 }

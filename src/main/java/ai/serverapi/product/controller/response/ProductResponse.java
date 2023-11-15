@@ -1,5 +1,6 @@
 package ai.serverapi.product.controller.response;
 
+import ai.serverapi.product.controller.vo.OptionVo;
 import ai.serverapi.product.domain.entity.ProductEntity;
 import ai.serverapi.product.enums.OptionStatus;
 import ai.serverapi.product.enums.ProductStatus;

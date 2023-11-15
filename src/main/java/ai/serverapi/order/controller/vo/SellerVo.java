@@ -30,10 +30,10 @@ public class SellerVo {
     @NotNull
     private String tel;
 
-    public static SellerVo of(final SellerEntity sellerEntity) {
-        return new SellerVo(sellerEntity.getId(), sellerEntity.getEmail(),
-            sellerEntity.getCompany(),
-            sellerEntity.getZonecode(), sellerEntity.getAddress(), sellerEntity.getAddressDetail(),
-            sellerEntity.getTel());
+    public static SellerVo of(final SellerEntity seller) {
+        return new SellerVo(seller.getId(), seller.getEmail(),
+            seller.getCompany(),
+            seller.getZonecode(), seller.getAddress(), seller.getAddressDetail(),
+            seller.getTel());
     }
 }
