@@ -2186,6 +2186,10 @@
           <li><a href="#_임시_주문_불러오기">임시 주문 불러오기</a></li>
           <li><a href="#_주문_완료">주문 완료</a></li>
           <li><a href="#_주문_내역_확인_seller">주문 내역 확인 (Seller)</a></li>
+          <li><a href="#_주문_내역_확인_member">📗 주문 내역 확인 (member)</a></li>
+          <li><a href="#_주문_상세_확인_seller">주문 상세 확인 (seller)</a></li>
+          <li><a href="#_주문_상세_확인_member">주문 상세 확인 (member)</a></li>
+          <li><a href="#_주문_취소_member">주문 취소 (member)</a></li>
         </ul>
       </li>
     </ul>
@@ -2865,9 +2869,9 @@ Content-Length: 488
   "message" : "success",
   "data" : {
     "type" : "Bearer ",
-    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDExODM1fQ.Sm7F5NkcWuWhhVaT_ZpgEoLU_Kj1q1Fu2S2attuix54fstUnP8ZvKTZjH0prE9W_gmlMVFXKyDKFn81vb13Hkw",
-    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2MTQ4MzV9.S0wNHwJH1k717sa7o9ltZJvjY4gV7FyN1FwQULj2GJuqkB50znBAgnDyDafOfAl_zI5vFWNmfCQn53Wi96XTYQ",
-    "access_token_expired" : 1700011835416
+    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDQyMDcwfQ.o4wIsdDPal6Ewt65gLbwk0f2KxK57BT86fGZ5238wnN-Vq0C2QUB9yhuW7fsmmSw3uW41Qi7zFAFgZAH1NJ4Jw",
+    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2NDUwNzB9.I-Cr_45Sd4zTQuvH0SjiKkK0tKe7qFXgXEvkryrQ95jDUE0o48d1BZ-OuhRzOxotarHP2qsls9-7mkYaFEIgwg",
+    "access_token_expired" : 1700042070421
   }
 }</code></pre>
             </div>
@@ -2946,7 +2950,7 @@ Content-Length: 488
           <h4 id="_request_6"><a class="link" href="#_request_6">REQUEST</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/auth/refresh/eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2MTQ4MzV9.S0wNHwJH1k717sa7o9ltZJvjY4gV7FyN1FwQULj2GJuqkB50znBAgnDyDafOfAl_zI5vFWNmfCQn53Wi96XTYQ HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/auth/refresh/eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2NDUwNzB9.I-Cr_45Sd4zTQuvH0SjiKkK0tKe7qFXgXEvkryrQ95jDUE0o48d1BZ-OuhRzOxotarHP2qsls9-7mkYaFEIgwg HTTP/1.1
 Host: 127.0.0.1</code></pre>
             </div>
           </div>
@@ -2994,9 +2998,9 @@ Content-Length: 488
   "message" : "success",
   "data" : {
     "type" : "Bearer ",
-    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDExODM1fQ.w7TWnifeVbXB7v7TpfJz5W1am48VlVX76zpILXiLJjZfSGmMZ-Fn7RsBNgeoazwBtzOe8WeH4IPm-hfF4EfjNw",
-    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2MTQ4MzV9.S0wNHwJH1k717sa7o9ltZJvjY4gV7FyN1FwQULj2GJuqkB50znBAgnDyDafOfAl_zI5vFWNmfCQn53Wi96XTYQ",
-    "access_token_expired" : 1700011835864
+    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDQyMDcwfQ.0sYZ0GuZA1XvDCng0qiQwF_Hp3hKdb6W8Jr5uzHaj55PXd6YVHf3i9wy3C4S--o106DC9z0enU0GHB-gl9AtzQ",
+    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2NDUwNzB9.I-Cr_45Sd4zTQuvH0SjiKkK0tKe7qFXgXEvkryrQ95jDUE0o48d1BZ-OuhRzOxotarHP2qsls9-7mkYaFEIgwg",
+    "access_token_expired" : 1700042070835
   }
 }</code></pre>
             </div>
@@ -3442,9 +3446,9 @@ Content-Length: 488
   "message" : "success",
   "data" : {
     "type" : "Bearer ",
-    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDExODQwfQ.1Gk22E1I68ULdXAotDxpC6Wo30yVszx9IyHHZ1tdACn5W1s58hZZA8cKC4Lzqich6l3PhYIiR1TTYywJ_QjFFA",
-    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2MTQ4NDB9.IO_9izKm98cbmXUK021yJbij5QqVEnkfipp0zZFRt86zjAFWf_4IaCU_oeUWJpYV9mXZGp34i8x--9fYmSVUmQ",
-    "access_token_expired" : 1700011840455
+    "access_token" : "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDQyMDc1fQ.0uyOZvJ6jBTSY6qRq6a6VH0ADNRErcpxmzZDNSqrFKyuI2rNcuGBmCr7TmQsKUvBLwX6kZiLP2oL_RvmvW2ZqA",
+    "refresh_token" : "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MDA2NDUwNzV9.MppIR1KfvbKyoByuaZImggdpbFRx6fZxpMgjQ0Mpu2Zg0z1a-JWj3qlJRpicn6RsMEhgzS2glF6rbYzxr-viRQ",
+    "access_token_expired" : 1700042075095
   }
 }</code></pre>
             </div>
@@ -3688,7 +3692,7 @@ Content-Length: 318
             <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PATCH /api/member HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDExODM4fQ.XFSUnFmiQAZ3v4sPSN1Xls7s5hEx-DhKXSQnp1ezdjOvpiWcTf2_DxlsYyLDWHjfUmRgkaqyeE4EvQer7sQcww
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0IiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDQyMDczfQ.gredslJ3Iys-k7x3WV9gMW0i2LRWNKk6tE5XoPm2sMJE2F-ewxmqvw1sTQoBcX5qAOVqI0x_-zawsfM-uJsoXg
 Content-Length: 135
 Host: 127.0.0.1
 
@@ -3876,7 +3880,7 @@ Content-Length: 110
             <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/member/seller HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDExODM4fQ.dnjx9DwX18e_0gQQNCxgID0u6zrOAryYvWPfxLbe9MPhefh_E-7kfev-g37EPXyeYEYhQers3Rm6Lxic1PoQ6Q
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiYXV0aCI6IlJPTEVfTUVNQkVSIiwiZXhwIjoxNzAwMDQyMDczfQ.rRZ_6uaEScvOVbqPuZrOCXSGfE8S8OpgElZDgyoFUdL2OZL9oYXrIS3sqc6rAg5UYBa4Hm5Tkf0L-2-4bD0sCg
 Content-Length: 220
 Host: 127.0.0.1
 
@@ -4561,8 +4565,8 @@ Content-Length: 400
       "address_detail" : "상세 주소",
       "tel" : "01011112222",
       "status" : "NORMAL",
-      "created_at" : "2023-11-15T10:00:38.706459",
-      "modified_at" : "2023-11-15T10:00:38.706459"
+      "created_at" : "2023-11-15T18:24:33.490485",
+      "modified_at" : "2023-11-15T18:24:33.490485"
     } ]
   }
 }</code></pre>
@@ -5165,7 +5169,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1185
+Content-Length: 1183
 
 {
   "code" : "0001",
@@ -5189,8 +5193,8 @@ Content-Length: 1185
     "status" : "NORMAL",
     "type" : "NORMAL",
     "ea" : 10,
-    "created_at" : "2023-11-15T10:00:48.886703",
-    "modified_at" : "2023-11-15T10:00:48.886703",
+    "created_at" : "2023-11-15T18:24:43.55539",
+    "modified_at" : "2023-11-15T18:24:43.55539",
     "seller" : {
       "seller_id" : 1,
       "email" : "mail@gmail.com",
@@ -5779,8 +5783,8 @@ Content-Length: 1185
     "status" : "NORMAL",
     "type" : "OPTION",
     "ea" : 10,
-    "created_at" : "2023-11-15T10:00:48.824728",
-    "modified_at" : "2023-11-15T10:00:48.824728",
+    "created_at" : "2023-11-15T18:24:43.497937",
+    "modified_at" : "2023-11-15T18:24:43.497937",
     "seller" : {
       "seller_id" : 1,
       "email" : "mail@gmail.com",
@@ -6411,7 +6415,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1193
+Content-Length: 1192
 
 {
   "code" : "0000",
@@ -6435,8 +6439,8 @@ Content-Length: 1193
     "status" : "NORMAL",
     "type" : "NORMAL",
     "ea" : 10,
-    "created_at" : "2023-11-15T10:00:48.850461",
-    "modified_at" : "2023-11-15T10:00:48.859189",
+    "created_at" : "2023-11-15T18:24:43.522713",
+    "modified_at" : "2023-11-15T18:24:43.53108",
     "seller" : {
       "seller_id" : 1,
       "email" : "mail@gmail.com",
@@ -7018,7 +7022,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1400
+Content-Length: 1401
 
 {
   "code" : "0000",
@@ -7042,8 +7046,8 @@ Content-Length: 1400
     "status" : "NORMAL",
     "type" : "OPTION",
     "ea" : 10,
-    "created_at" : "2023-11-15T10:00:48.913794",
-    "modified_at" : "2023-11-15T10:00:48.917391",
+    "created_at" : "2023-11-15T18:24:43.577818",
+    "modified_at" : "2023-11-15T18:24:43.580807",
     "seller" : {
       "seller_id" : 1,
       "email" : "mail@gmail.com",
@@ -7064,8 +7068,8 @@ Content-Length: 1400
       "name" : "option3333",
       "extra_price" : 1000,
       "ea" : 100,
-      "created_at" : "2023-11-15T10:00:48.914821",
-      "modified_at" : "2023-11-15T10:00:48.91969"
+      "created_at" : "2023-11-15T18:24:43.578585",
+      "modified_at" : "2023-11-15T18:24:43.581979"
     } ]
   }
 }</code></pre>
@@ -7464,7 +7468,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 7393
+Content-Length: 7391
 
 {
   "code" : "0000",
@@ -7494,8 +7498,8 @@ Content-Length: 7393
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.308808",
-      "modified_at" : "2023-11-15T10:00:47.308808",
+      "created_at" : "2023-11-15T18:24:42.24358",
+      "modified_at" : "2023-11-15T18:24:42.24358",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -7516,8 +7520,8 @@ Content-Length: 7393
         "name" : "option1",
         "extra_price" : 1000,
         "ea" : 100,
-        "created_at" : "2023-11-15T10:00:47.309406",
-        "modified_at" : "2023-11-15T10:00:47.309406"
+        "created_at" : "2023-11-15T18:24:42.243981",
+        "modified_at" : "2023-11-15T18:24:42.243981"
       } ]
     }, {
       "product_id" : 35,
@@ -7538,8 +7542,8 @@ Content-Length: 7393
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.307813",
-      "modified_at" : "2023-11-15T10:00:47.307813",
+      "created_at" : "2023-11-15T18:24:42.242926",
+      "modified_at" : "2023-11-15T18:24:42.242926",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -7560,8 +7564,8 @@ Content-Length: 7393
         "name" : "option1",
         "extra_price" : 1000,
         "ea" : 100,
-        "created_at" : "2023-11-15T10:00:47.30843",
-        "modified_at" : "2023-11-15T10:00:47.30843"
+        "created_at" : "2023-11-15T18:24:42.243344",
+        "modified_at" : "2023-11-15T18:24:42.243344"
       } ]
     }, {
       "product_id" : 34,
@@ -7582,8 +7586,8 @@ Content-Length: 7393
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.306881",
-      "modified_at" : "2023-11-15T10:00:47.306881",
+      "created_at" : "2023-11-15T18:24:42.242214",
+      "modified_at" : "2023-11-15T18:24:42.242214",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -7604,8 +7608,8 @@ Content-Length: 7393
         "name" : "option1",
         "extra_price" : 1000,
         "ea" : 100,
-        "created_at" : "2023-11-15T10:00:47.307439",
-        "modified_at" : "2023-11-15T10:00:47.307439"
+        "created_at" : "2023-11-15T18:24:42.242651",
+        "modified_at" : "2023-11-15T18:24:42.242651"
       } ]
     }, {
       "product_id" : 33,
@@ -7626,8 +7630,8 @@ Content-Length: 7393
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.305864",
-      "modified_at" : "2023-11-15T10:00:47.305864",
+      "created_at" : "2023-11-15T18:24:42.24139",
+      "modified_at" : "2023-11-15T18:24:42.24139",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -7648,8 +7652,8 @@ Content-Length: 7393
         "name" : "option1",
         "extra_price" : 1000,
         "ea" : 100,
-        "created_at" : "2023-11-15T10:00:47.306479",
-        "modified_at" : "2023-11-15T10:00:47.306479"
+        "created_at" : "2023-11-15T18:24:42.241871",
+        "modified_at" : "2023-11-15T18:24:42.241871"
       } ]
     }, {
       "product_id" : 32,
@@ -7670,8 +7674,8 @@ Content-Length: 7393
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.304919",
-      "modified_at" : "2023-11-15T10:00:47.304919",
+      "created_at" : "2023-11-15T18:24:42.240713",
+      "modified_at" : "2023-11-15T18:24:42.240713",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -7692,8 +7696,8 @@ Content-Length: 7393
         "name" : "option1",
         "extra_price" : 1000,
         "ea" : 100,
-        "created_at" : "2023-11-15T10:00:47.305409",
-        "modified_at" : "2023-11-15T10:00:47.305409"
+        "created_at" : "2023-11-15T18:24:42.241143",
+        "modified_at" : "2023-11-15T18:24:42.241143"
       } ]
     } ]
   }
@@ -8192,8 +8196,8 @@ Content-Length: 6188
       "status" : "NORMAL",
       "type" : "OPTION",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:48.748018",
-      "modified_at" : "2023-11-15T10:00:48.748018",
+      "created_at" : "2023-11-15T18:24:43.447082",
+      "modified_at" : "2023-11-15T18:24:43.447082",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -8229,8 +8233,8 @@ Content-Length: 6188
       "status" : "NORMAL",
       "type" : "OPTION",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:48.747295",
-      "modified_at" : "2023-11-15T10:00:48.747295",
+      "created_at" : "2023-11-15T18:24:43.446297",
+      "modified_at" : "2023-11-15T18:24:43.446297",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -8266,8 +8270,8 @@ Content-Length: 6188
       "status" : "NORMAL",
       "type" : "OPTION",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:48.746415",
-      "modified_at" : "2023-11-15T10:00:48.746415",
+      "created_at" : "2023-11-15T18:24:43.445727",
+      "modified_at" : "2023-11-15T18:24:43.445727",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -8303,8 +8307,8 @@ Content-Length: 6188
       "status" : "NORMAL",
       "type" : "OPTION",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:48.743591",
-      "modified_at" : "2023-11-15T10:00:48.743591",
+      "created_at" : "2023-11-15T18:24:43.445203",
+      "modified_at" : "2023-11-15T18:24:43.445203",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -8340,8 +8344,8 @@ Content-Length: 6188
       "status" : "NORMAL",
       "type" : "OPTION",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:48.74271",
-      "modified_at" : "2023-11-15T10:00:48.74271",
+      "created_at" : "2023-11-15T18:24:43.44462",
+      "modified_at" : "2023-11-15T18:24:43.44462",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -8744,8 +8748,8 @@ Content-Length: 1181
     "status" : "NORMAL",
     "type" : "NORMAL",
     "ea" : 10,
-    "created_at" : "2023-11-15T10:00:47.850819",
-    "modified_at" : "2023-11-15T10:00:47.850819",
+    "created_at" : "2023-11-15T18:24:42.544819",
+    "modified_at" : "2023-11-15T18:24:42.544819",
     "seller" : {
       "seller_id" : 1,
       "email" : "mail@gmail.com",
@@ -9194,7 +9198,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 3679
+Content-Length: 3681
 
 {
   "code" : "0000",
@@ -9219,8 +9223,8 @@ Content-Length: 3679
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.652958",
-      "modified_at" : "2023-11-15T10:00:47.652958",
+      "created_at" : "2023-11-15T18:24:42.330386",
+      "modified_at" : "2023-11-15T18:24:42.330386",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -9256,8 +9260,8 @@ Content-Length: 3679
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.65414",
-      "modified_at" : "2023-11-15T10:00:47.65414",
+      "created_at" : "2023-11-15T18:24:42.331034",
+      "modified_at" : "2023-11-15T18:24:42.331034",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -9293,8 +9297,8 @@ Content-Length: 3679
       "status" : "NORMAL",
       "type" : "NORMAL",
       "ea" : 10,
-      "created_at" : "2023-11-15T10:00:47.654767",
-      "modified_at" : "2023-11-15T10:00:47.654767",
+      "created_at" : "2023-11-15T18:24:42.331436",
+      "modified_at" : "2023-11-15T18:24:42.331436",
       "seller" : {
         "seller_id" : 1,
         "email" : "mail@gmail.com",
@@ -9732,7 +9736,7 @@ Content-Length: 87
   "code" : "0001",
   "message" : "201 success",
   "data" : {
-    "order_id" : 2
+    "order_id" : 3
   }
 }</code></pre>
             </div>
@@ -9853,7 +9857,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json;charset=UTF-8
-Content-Length: 2861
+Content-Length: 2886
 
 {
   "code" : "0000",
@@ -9861,7 +9865,7 @@ Content-Length: 2861
   "data" : {
     "order_id" : 1,
     "order_item_list" : [ {
-      "product_id" : 1,
+      "product_id" : 3,
       "main_title" : "일반상품",
       "main_explanation" : "메인 설명",
       "product_main_explanation" : "상품 메인 설명",
@@ -9900,7 +9904,7 @@ Content-Length: 2861
       "created_at" : "2023-11-07T22:29:38.583188",
       "modified_at" : "2023-11-07T22:29:38.583204"
     }, {
-      "product_id" : 2,
+      "product_id" : 1,
       "main_title" : "옵션 상품",
       "main_explanation" : "메인 설명",
       "product_main_explanation" : "상품 메인 설명",
@@ -9918,6 +9922,7 @@ Content-Length: 2861
       "status" : "NORMAL",
       "type" : "OPTION",
       "option" : {
+        "option_id" : 1,
         "name" : "옵션1",
         "extra_price" : 300,
         "status" : "NORMAL",
@@ -10326,45 +10331,253 @@ Content-Length: 2861
         <h3 id="_주문_완료"><a class="link" href="#_주문_완료">주문 완료</a></h3>
         <div class="sect3">
           <h4 id="_request_31"><a class="link" href="#_request_31">REQUEST</a></h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/http-request.adoc[]</p>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PATCH /api/order/complete HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer member-test-token
+Content-Length: 430
+Host: 127.0.0.1
+
+{
+  "order_id" : 2,
+  "owner_name" : "주문자",
+  "owner_zonecode" : "1234567",
+  "owner_address" : "주문자 주소",
+  "owner_address_detail" : "주문자 상세 주소",
+  "owner_tel" : "주문자 연락처",
+  "recipient_name" : "수령인",
+  "recipient_zonecode" : "1234567",
+  "recipient_address" : "수령인 주소",
+  "recipient_address_detail" : "수령인 상세 주소",
+  "recipient_tel" : "수령인 연락처"
+}</code></pre>
+            </div>
           </div>
         </div>
         <div class="sect3">
           <h4 id="_request_header_19"><a class="link" href="#_request_header_19">REQUEST HEADER</a>
           </h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/request-headers.adoc[]</p>
-          </div>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (MEMBER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="sect3">
           <h4 id="_request_field_19"><a class="link" href="#_request_field_19">REQUEST FIELD</a>
           </h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/request-body.adoc[]</p>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "order_id" : 2,
+  "owner_name" : "주문자",
+  "owner_zonecode" : "1234567",
+  "owner_address" : "주문자 주소",
+  "owner_address_detail" : "주문자 상세 주소",
+  "owner_tel" : "주문자 연락처",
+  "recipient_name" : "수령인",
+  "recipient_zonecode" : "1234567",
+  "recipient_address" : "수령인 주소",
+  "recipient_address_detail" : "수령인 상세 주소",
+  "recipient_tel" : "수령인 연락처"
+}</code></pre>
+            </div>
           </div>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/request-fields.adoc[]</p>
-          </div>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>order_id</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>owner_name</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owner_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owner_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owner_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 상세 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>owner_tel</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 연락처</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipient_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipient_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipient_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipient_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 상세 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipient_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 연락처</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="sect3">
           <h4 id="_response_31"><a class="link" href="#_response_31">RESPONSE</a></h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/http-response.adoc[]</p>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 124
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "order_id" : 2,
+    "order_number" : "ORDER-20231115-2"
+  }
+}</code></pre>
+            </div>
           </div>
         </div>
         <div class="sect3">
           <h4 id="_response_field_29"><a class="link" href="#_response_field_29">RESPONSE FIELD</a>
           </h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/complete/response-fields.adoc[]</p>
-          </div>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_number</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 번호</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="sect2">
@@ -10372,41 +10585,2653 @@ Content-Length: 2861
         </h3>
         <div class="sect3">
           <h4 id="_request_32"><a class="link" href="#_request_32">REQUEST</a></h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/get-order-by-seller/http-request.adoc[]</p>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/order/seller?search=&amp;page=0&amp;size=5&amp;status=complete HTTP/1.1
+Authorization: Bearer seller-test-token
+Host: 127.0.0.1</code></pre>
+            </div>
           </div>
         </div>
         <div class="sect3">
           <h4 id="_request_header_20"><a class="link" href="#_request_header_20">REQUEST HEADER</a>
           </h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/get-order-by-seller/request-headers.adoc[]</p>
-          </div>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (MEMBER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="sect3">
           <h4 id="_request_parameters"><a class="link" href="#_request_parameters">REQUEST
             PARAMETERS</a></h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/get-order-by-seller/query-parameters.adoc[]</p>
-          </div>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">Parameter</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>search</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">검색어</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">페이지 (기본값 0)</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기 (기본값
+                10)</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>status</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상태값 (TEMP : 임시,
+                COMPLETE : 완료)</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="sect3">
           <h4 id="_response_32"><a class="link" href="#_response_32">RESPONSE</a></h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/get-order-by-seller/http-response.adoc[]</p>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 3710
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "total_page" : 1,
+    "total_elements" : 1,
+    "number_of_elements" : 1,
+    "last" : true,
+    "empty" : false,
+    "list" : [ {
+      "order_id" : 1,
+      "order_number" : "ORDER-20231107-72",
+      "created_at" : "2023-11-07T22:29:38.493615",
+      "modified_at" : "2023-11-07T22:29:38.49365",
+      "member" : {
+        "email" : "member@gmail.com",
+        "nickname" : "member",
+        "name" : "김멤버",
+        "birth" : "19941030"
+      },
+      "order_item_list" : [ {
+        "product_id" : 3,
+        "ea" : 2,
+        "main_title" : "일반상품",
+        "main_explanation" : "메인 설명",
+        "product_main_explanation" : "상품 메인 설명",
+        "product_sub_explanation" : "상품 서브 설명",
+        "origin_price" : 10000,
+        "price" : 9000,
+        "purchase_inquiry" : "취급 방법",
+        "origin" : "원산지",
+        "producer" : "공급자",
+        "main_image" : "https://메인이미지",
+        "image1" : "https://image1",
+        "image2" : "https://image2",
+        "image3" : "https://image3",
+        "view_cnt" : 0,
+        "status" : "NORMAL",
+        "created_at" : "2023-09-26T15:09:27.363409",
+        "modified_at" : "2023-11-07T22:29:38.583204",
+        "seller" : {
+          "seller_id" : 1,
+          "email" : "mail@gmail.com",
+          "company" : "회사명",
+          "zonecode" : "1234",
+          "address" : "주소",
+          "address_detail" : "상세주소",
+          "tel" : "01012341234"
+        },
+        "category" : {
+          "category_id" : 1,
+          "name" : "뷰티",
+          "created_at" : "2023-09-26T15:09:27.2639",
+          "modified_at" : "2023-09-26T15:09:27.2639"
+        }
+      }, {
+        "product_id" : 1,
+        "ea" : 3,
+        "main_title" : "옵션 상품",
+        "main_explanation" : "메인 설명",
+        "product_main_explanation" : "상품 메인 설명",
+        "product_sub_explanation" : "상품 서브 설명",
+        "origin_price" : 10000,
+        "price" : 9000,
+        "purchase_inquiry" : "취급 방법",
+        "origin" : "원산지",
+        "producer" : "공급자",
+        "main_image" : "https://메인이미지",
+        "image1" : "https://image1",
+        "image2" : "https://image2",
+        "image3" : "https://image3",
+        "view_cnt" : 0,
+        "status" : "NORMAL",
+        "created_at" : "2023-09-26T15:09:27.363409",
+        "modified_at" : "2023-11-07T22:29:38.583204",
+        "seller" : {
+          "seller_id" : 1,
+          "email" : "mail@gmail.com",
+          "company" : "회사명",
+          "zonecode" : "1234",
+          "address" : "주소",
+          "address_detail" : "상세주소",
+          "tel" : "01012341234"
+        },
+        "category" : {
+          "category_id" : 1,
+          "name" : "뷰티",
+          "created_at" : "2023-09-26T15:09:27.2639",
+          "modified_at" : "2023-09-26T15:09:27.2639"
+        },
+        "option" : {
+          "option_id" : 1,
+          "name" : "옵션1",
+          "extra_price" : 300,
+          "ea" : 0,
+          "created_at" : "2023-10-16T12:40:18.265057",
+          "modified_at" : "2023-10-16T12:40:18.265057"
+        }
+      } ],
+      "delivery" : {
+        "owner_name" : "홍길동",
+        "owner_zonecode" : "1232",
+        "owner_address" : "자혜로 17번길 16",
+        "owner_address_detail" : "101 1404",
+        "owner_tel" : "01093008039",
+        "recipient_name" : "김영희",
+        "recipient_zonecode" : "1233",
+        "recipient_address" : "자혜로 17번길 15",
+        "recipient_address_detail" : "지리산네",
+        "recipient_tel" : "01012341234"
+      }
+    } ]
+  }
+}</code></pre>
+            </div>
           </div>
         </div>
         <div class="sect3">
           <h4 id="_response_field_30"><a class="link" href="#_response_field_30">RESPONSE FIELD</a>
           </h4>
-          <div class="paragraph">
-            <p>Unresolved directive in order/order.adoc -
-              include::/Users/apple/Documents/02.Dev/server-api/build/generated-snippets/order-controller-docs/get-order-by-seller/response-fields.adoc[]</p>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.total_page</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">총 페이지 수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.total_elements</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">총 요소 수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.number_of_elements</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지의 요소 수</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>data.last</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Boolean</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">마지막 페이지 여부</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>data.empty</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Boolean</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">비어있는 목록 여부</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_number</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 생성 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 수정 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.nickname</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 닉네임</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.birth</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 생년월일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_sub_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 보조 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_title</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 제목</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].origin_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원래 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].purchase_inquiry</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">취급방법</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].origin</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원산지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].producer</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">공급자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_image</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 이미지 URL</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image1</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지1</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image2</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지2</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image3</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지3</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].view_cnt</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">조회수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].status</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 상태</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.seller_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.company</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 회사명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.category_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.option_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.extra_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 추가 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 전화번호</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sect2">
+        <h3 id="_주문_내역_확인_member"><a class="link" href="#_주문_내역_확인_member">📗 주문 내역 확인 (member)</a>
+        </h3>
+        <div class="sect3">
+          <h4 id="_request_33"><a class="link" href="#_request_33">REQUEST</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/order/member?search=&amp;page=0&amp;size=5&amp;status=complete HTTP/1.1
+Authorization: Bearer member-test-token
+Host: 127.0.0.1</code></pre>
+            </div>
           </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_header_21"><a class="link" href="#_request_header_21">REQUEST HEADER</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (MEMBER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_parameters_2"><a class="link" href="#_request_parameters_2">REQUEST
+            PARAMETERS</a></h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">Parameter</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>search</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">검색어</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>page</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">페이지 (기본값 0)</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">페이지 크기 (기본값
+                10)</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>status</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">❌</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상태값 (TEMP : 임시,
+                COMPLETE : 완료)</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_33"><a class="link" href="#_response_33">RESPONSE</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 3710
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "total_page" : 1,
+    "total_elements" : 1,
+    "number_of_elements" : 1,
+    "last" : true,
+    "empty" : false,
+    "list" : [ {
+      "order_id" : 1,
+      "order_number" : "ORDER-20231107-72",
+      "created_at" : "2023-11-07T22:29:38.493615",
+      "modified_at" : "2023-11-07T22:29:38.49365",
+      "member" : {
+        "email" : "member@gmail.com",
+        "nickname" : "member",
+        "name" : "김멤버",
+        "birth" : "19941030"
+      },
+      "order_item_list" : [ {
+        "product_id" : 3,
+        "ea" : 2,
+        "main_title" : "일반상품",
+        "main_explanation" : "메인 설명",
+        "product_main_explanation" : "상품 메인 설명",
+        "product_sub_explanation" : "상품 서브 설명",
+        "origin_price" : 10000,
+        "price" : 9000,
+        "purchase_inquiry" : "취급 방법",
+        "origin" : "원산지",
+        "producer" : "공급자",
+        "main_image" : "https://메인이미지",
+        "image1" : "https://image1",
+        "image2" : "https://image2",
+        "image3" : "https://image3",
+        "view_cnt" : 0,
+        "status" : "NORMAL",
+        "created_at" : "2023-09-26T15:09:27.363409",
+        "modified_at" : "2023-11-07T22:29:38.583204",
+        "seller" : {
+          "seller_id" : 1,
+          "email" : "mail@gmail.com",
+          "company" : "회사명",
+          "zonecode" : "1234",
+          "address" : "주소",
+          "address_detail" : "상세주소",
+          "tel" : "01012341234"
+        },
+        "category" : {
+          "category_id" : 1,
+          "name" : "뷰티",
+          "created_at" : "2023-09-26T15:09:27.2639",
+          "modified_at" : "2023-09-26T15:09:27.2639"
+        }
+      }, {
+        "product_id" : 1,
+        "ea" : 3,
+        "main_title" : "옵션 상품",
+        "main_explanation" : "메인 설명",
+        "product_main_explanation" : "상품 메인 설명",
+        "product_sub_explanation" : "상품 서브 설명",
+        "origin_price" : 10000,
+        "price" : 9000,
+        "purchase_inquiry" : "취급 방법",
+        "origin" : "원산지",
+        "producer" : "공급자",
+        "main_image" : "https://메인이미지",
+        "image1" : "https://image1",
+        "image2" : "https://image2",
+        "image3" : "https://image3",
+        "view_cnt" : 0,
+        "status" : "NORMAL",
+        "created_at" : "2023-09-26T15:09:27.363409",
+        "modified_at" : "2023-11-07T22:29:38.583204",
+        "seller" : {
+          "seller_id" : 1,
+          "email" : "mail@gmail.com",
+          "company" : "회사명",
+          "zonecode" : "1234",
+          "address" : "주소",
+          "address_detail" : "상세주소",
+          "tel" : "01012341234"
+        },
+        "category" : {
+          "category_id" : 1,
+          "name" : "뷰티",
+          "created_at" : "2023-09-26T15:09:27.2639",
+          "modified_at" : "2023-09-26T15:09:27.2639"
+        },
+        "option" : {
+          "option_id" : 1,
+          "name" : "옵션1",
+          "extra_price" : 300,
+          "ea" : 0,
+          "created_at" : "2023-10-16T12:40:18.265057",
+          "modified_at" : "2023-10-16T12:40:18.265057"
+        }
+      } ],
+      "delivery" : {
+        "owner_name" : "홍길동",
+        "owner_zonecode" : "1232",
+        "owner_address" : "자혜로 17번길 16",
+        "owner_address_detail" : "101 1404",
+        "owner_tel" : "01093008039",
+        "recipient_name" : "김영희",
+        "recipient_zonecode" : "1233",
+        "recipient_address" : "자혜로 17번길 15",
+        "recipient_address_detail" : "지리산네",
+        "recipient_tel" : "01012341234"
+      }
+    } ]
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_field_31"><a class="link" href="#_response_field_31">RESPONSE FIELD</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.total_page</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">총 페이지 수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.total_elements</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">총 요소 수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.number_of_elements</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">현재 페이지의 요소 수</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>data.last</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Boolean</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">마지막 페이지 여부</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>data.empty</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Boolean</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">비어있는 목록 여부</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_number</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 생성 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 수정 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.nickname</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 닉네임</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].member.birth</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 생년월일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].product_sub_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 보조 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_title</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 제목</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].origin_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원래 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].purchase_inquiry</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">취급방법</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].origin</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원산지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].producer</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">공급자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].main_image</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 이미지 URL</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image1</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지1</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image2</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지2</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].image3</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지3</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].view_cnt</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">조회수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].status</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 상태</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.seller_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.company</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 회사명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].seller.tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.category_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].category.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.option_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.extra_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 추가 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].order_item_list[].option.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.owner_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.list[].delivery.recipient_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 전화번호</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sect2">
+        <h3 id="_주문_상세_확인_seller"><a class="link" href="#_주문_상세_확인_seller">주문 상세 확인 (seller)</a>
+        </h3>
+        <div class="sect3">
+          <h4 id="_request_34"><a class="link" href="#_request_34">REQUEST</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/order/seller/1 HTTP/1.1
+Authorization: Bearer seller-test-token
+Host: 127.0.0.1</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_header_22"><a class="link" href="#_request_header_22">REQUEST HEADER</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (SELLER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_parameters_3"><a class="link" href="#_request_parameters_3">REQUEST
+            PARAMETERS</a></h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">Parameter</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>order_id</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 id</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_34"><a class="link" href="#_response_34">RESPONSE</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 3365
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "order_id" : 1,
+    "order_number" : "ORDER-20231107-72",
+    "created_at" : "2023-11-07T22:29:38.493615",
+    "modified_at" : "2023-11-07T22:29:38.49365",
+    "member" : {
+      "email" : "member@gmail.com",
+      "nickname" : "member",
+      "name" : "김멤버",
+      "birth" : "19941030"
+    },
+    "order_item_list" : [ {
+      "product_id" : 3,
+      "ea" : 2,
+      "main_title" : "일반상품",
+      "main_explanation" : "메인 설명",
+      "product_main_explanation" : "상품 메인 설명",
+      "product_sub_explanation" : "상품 서브 설명",
+      "origin_price" : 10000,
+      "price" : 9000,
+      "purchase_inquiry" : "취급 방법",
+      "origin" : "원산지",
+      "producer" : "공급자",
+      "main_image" : "https://메인이미지",
+      "image1" : "https://image1",
+      "image2" : "https://image2",
+      "image3" : "https://image3",
+      "view_cnt" : 0,
+      "status" : "NORMAL",
+      "created_at" : "2023-09-26T15:09:27.363409",
+      "modified_at" : "2023-11-07T22:29:38.583204",
+      "seller" : {
+        "seller_id" : 1,
+        "email" : "mail@gmail.com",
+        "company" : "회사명",
+        "zonecode" : "1234",
+        "address" : "주소",
+        "address_detail" : "상세주소",
+        "tel" : "01012341234"
+      },
+      "category" : {
+        "category_id" : 1,
+        "name" : "뷰티",
+        "created_at" : "2023-09-26T15:09:27.2639",
+        "modified_at" : "2023-09-26T15:09:27.2639"
+      }
+    }, {
+      "product_id" : 1,
+      "ea" : 3,
+      "main_title" : "옵션 상품",
+      "main_explanation" : "메인 설명",
+      "product_main_explanation" : "상품 메인 설명",
+      "product_sub_explanation" : "상품 서브 설명",
+      "origin_price" : 10000,
+      "price" : 9000,
+      "purchase_inquiry" : "취급 방법",
+      "origin" : "원산지",
+      "producer" : "공급자",
+      "main_image" : "https://메인이미지",
+      "image1" : "https://image1",
+      "image2" : "https://image2",
+      "image3" : "https://image3",
+      "view_cnt" : 0,
+      "status" : "NORMAL",
+      "created_at" : "2023-09-26T15:09:27.363409",
+      "modified_at" : "2023-11-07T22:29:38.583204",
+      "seller" : {
+        "seller_id" : 1,
+        "email" : "mail@gmail.com",
+        "company" : "회사명",
+        "zonecode" : "1234",
+        "address" : "주소",
+        "address_detail" : "상세주소",
+        "tel" : "01012341234"
+      },
+      "category" : {
+        "category_id" : 1,
+        "name" : "뷰티",
+        "created_at" : "2023-09-26T15:09:27.2639",
+        "modified_at" : "2023-09-26T15:09:27.2639"
+      },
+      "option" : {
+        "option_id" : 1,
+        "name" : "옵션1",
+        "extra_price" : 300,
+        "ea" : 0,
+        "created_at" : "2023-10-16T12:40:18.265057",
+        "modified_at" : "2023-10-16T12:40:18.265057"
+      }
+    } ],
+    "delivery" : {
+      "owner_name" : "홍길동",
+      "owner_zonecode" : "1232",
+      "owner_address" : "자혜로 17번길 16",
+      "owner_address_detail" : "101 1404",
+      "owner_tel" : "01093008039",
+      "recipient_name" : "김영희",
+      "recipient_zonecode" : "1233",
+      "recipient_address" : "자혜로 17번길 15",
+      "recipient_address_detail" : "지리산네",
+      "recipient_tel" : "01012341234"
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_field_32"><a class="link" href="#_response_field_32">RESPONSE FIELD</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_number</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data..created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 생성 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 수정 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.nickname</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 닉네임</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.birth</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 생년월일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_sub_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 보조 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_title</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 제목</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].origin_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원래 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].purchase_inquiry</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">취급방법</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].origin</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원산지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].producer</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">공급자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_image</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 이미지 URL</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image1</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지1</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image2</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지2</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image3</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지3</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].view_cnt</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">조회수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].status</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 상태</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.seller_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.company</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 회사명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.category_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.option_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.extra_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 추가 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 전화번호</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sect2">
+        <h3 id="_주문_상세_확인_member"><a class="link" href="#_주문_상세_확인_member">주문 상세 확인 (member)</a>
+        </h3>
+        <div class="sect3">
+          <h4 id="_request_35"><a class="link" href="#_request_35">REQUEST</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/order/member/1 HTTP/1.1
+Authorization: Bearer member-test-token
+Host: 127.0.0.1</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_header_23"><a class="link" href="#_request_header_23">REQUEST HEADER</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (MEMBER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_parameters_4"><a class="link" href="#_request_parameters_4">REQUEST
+            PARAMETERS</a></h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">Parameter</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>order_id</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 id</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_35"><a class="link" href="#_response_35">RESPONSE</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 3365
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "order_id" : 1,
+    "order_number" : "ORDER-20231107-72",
+    "created_at" : "2023-11-07T22:29:38.493615",
+    "modified_at" : "2023-11-07T22:29:38.49365",
+    "member" : {
+      "email" : "member@gmail.com",
+      "nickname" : "member",
+      "name" : "김멤버",
+      "birth" : "19941030"
+    },
+    "order_item_list" : [ {
+      "product_id" : 3,
+      "ea" : 2,
+      "main_title" : "일반상품",
+      "main_explanation" : "메인 설명",
+      "product_main_explanation" : "상품 메인 설명",
+      "product_sub_explanation" : "상품 서브 설명",
+      "origin_price" : 10000,
+      "price" : 9000,
+      "purchase_inquiry" : "취급 방법",
+      "origin" : "원산지",
+      "producer" : "공급자",
+      "main_image" : "https://메인이미지",
+      "image1" : "https://image1",
+      "image2" : "https://image2",
+      "image3" : "https://image3",
+      "view_cnt" : 0,
+      "status" : "NORMAL",
+      "created_at" : "2023-09-26T15:09:27.363409",
+      "modified_at" : "2023-11-07T22:29:38.583204",
+      "seller" : {
+        "seller_id" : 1,
+        "email" : "mail@gmail.com",
+        "company" : "회사명",
+        "zonecode" : "1234",
+        "address" : "주소",
+        "address_detail" : "상세주소",
+        "tel" : "01012341234"
+      },
+      "category" : {
+        "category_id" : 1,
+        "name" : "뷰티",
+        "created_at" : "2023-09-26T15:09:27.2639",
+        "modified_at" : "2023-09-26T15:09:27.2639"
+      }
+    }, {
+      "product_id" : 1,
+      "ea" : 3,
+      "main_title" : "옵션 상품",
+      "main_explanation" : "메인 설명",
+      "product_main_explanation" : "상품 메인 설명",
+      "product_sub_explanation" : "상품 서브 설명",
+      "origin_price" : 10000,
+      "price" : 9000,
+      "purchase_inquiry" : "취급 방법",
+      "origin" : "원산지",
+      "producer" : "공급자",
+      "main_image" : "https://메인이미지",
+      "image1" : "https://image1",
+      "image2" : "https://image2",
+      "image3" : "https://image3",
+      "view_cnt" : 0,
+      "status" : "NORMAL",
+      "created_at" : "2023-09-26T15:09:27.363409",
+      "modified_at" : "2023-11-07T22:29:38.583204",
+      "seller" : {
+        "seller_id" : 1,
+        "email" : "mail@gmail.com",
+        "company" : "회사명",
+        "zonecode" : "1234",
+        "address" : "주소",
+        "address_detail" : "상세주소",
+        "tel" : "01012341234"
+      },
+      "category" : {
+        "category_id" : 1,
+        "name" : "뷰티",
+        "created_at" : "2023-09-26T15:09:27.2639",
+        "modified_at" : "2023-09-26T15:09:27.2639"
+      },
+      "option" : {
+        "option_id" : 1,
+        "name" : "옵션1",
+        "extra_price" : 300,
+        "ea" : 0,
+        "created_at" : "2023-10-16T12:40:18.265057",
+        "modified_at" : "2023-10-16T12:40:18.265057"
+      }
+    } ],
+    "delivery" : {
+      "owner_name" : "홍길동",
+      "owner_zonecode" : "1232",
+      "owner_address" : "자혜로 17번길 16",
+      "owner_address_detail" : "101 1404",
+      "owner_tel" : "01093008039",
+      "recipient_name" : "김영희",
+      "recipient_zonecode" : "1233",
+      "recipient_address" : "자혜로 17번길 15",
+      "recipient_address_detail" : "지리산네",
+      "recipient_tel" : "01012341234"
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_field_33"><a class="link" href="#_response_field_33">RESPONSE FIELD</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_number</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data..created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 생성 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문 수정 일자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.nickname</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 닉네임</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.member.birth</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">회원 생년월일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].product_sub_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 보조 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_title</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 제목</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_explanation</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 설명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].origin_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원래 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].purchase_inquiry</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">취급방법</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].origin</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">원산지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].producer</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">공급자</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].main_image</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 메인 이미지 URL</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image1</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지1</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image2</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지2</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].image3</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">이미지3</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].view_cnt</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">조회수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].status</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 상태</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">상품 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.seller_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 id</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.email</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 이메일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.company</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 회사명</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].seller.tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">판매자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.category_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].category.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.option_id</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 ID</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.extra_price</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 추가 가격</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.ea</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>Number</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 개수</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.created_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 생성일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.order_item_list[].option.modified_at</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">옵션 수정일</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.owner_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">주문자 전화번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_name</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 이름</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_zonecode</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 우편번호</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_address</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_address_detail</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 상세주소</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.delivery.recipient_tel</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">수령인 전화번호</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sect2">
+        <h3 id="_주문_취소_member"><a class="link" href="#_주문_취소_member">주문 취소 (member)</a></h3>
+        <div class="sect3">
+          <h4 id="_request_36"><a class="link" href="#_request_36">REQUEST</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PATCH /api/order/member/cancel HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer member-test-token
+Content-Length: 20
+Host: 127.0.0.1
+
+{
+  "order_id" : 1
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_header_24"><a class="link" href="#_request_header_24">REQUEST HEADER</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">header</th>
+              <th class="tableblock halign-left valign-top">필수여부</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">✅</p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">access token
+                (MEMBER 권한 이상)</p></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sect3">
+          <h4 id="_request_body_4"><a class="link" href="#_request_body_4">REQUEST BODY</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "order_id" : 1
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_36"><a class="link" href="#_response_36">RESPONSE</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json;charset=UTF-8
+Content-Length: 115
+
+{
+  "code" : "0000",
+  "message" : "success",
+  "data" : {
+    "message" : "주문이 취소되었습니다."
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_response_field_34"><a class="link" href="#_response_field_34">RESPONSE FIELD</a>
+          </h4>
+          <table class="tableblock frame-all grid-all stretch">
+            <colgroup>
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3333%;">
+              <col style="width: 33.3334%;">
+            </colgroup>
+            <thead>
+            <tr>
+              <th class="tableblock halign-left valign-top">필드명</th>
+              <th class="tableblock halign-left valign-top">타입</th>
+              <th class="tableblock halign-left valign-top">설명</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code>
+              </p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 코드</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            <tr>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>data.message</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">
+                <code>String</code></p></td>
+              <td class="tableblock halign-left valign-top"><p class="tableblock">결과 메세지</p></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
