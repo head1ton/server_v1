@@ -12,6 +12,7 @@ import ai.serverapi.order.enums.OrderStatus;
 import ai.serverapi.product.domain.entity.SellerEntity;
 import com.querydsl.core.BooleanBuilder;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -80,5 +81,30 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
                       .count();
 
         return new PageImpl<>(content, pageable, total);
+    }
+
+    @Override
+    public Optional<OrderVo> findByIdAndSeller(final Long orderId,
+        final SellerEntity sellerEntity) {
+
+        QOrderEntity order = QOrderEntity.orderEntity;
+        QOrderItemEntity orderItem = QOrderItemEntity.orderItemEntity;
+        QOrderProductEntity orderProduct = QOrderProductEntity.orderProductEntity;
+        QOrderOptionEntity orderOption = QOrderOptionEntity.orderOptionEntity;
+
+        BooleanBuilder builder = new BooleanBuilder();
+        builder.and(order.id.eq(orderId));
+        builder.and(orderProduct.seller.id.eq(sellerEntity.getId()));
+
+        OrderEntity fetch = q.query().selectFrom(order)
+                             .join(orderItem).on(order.id.eq(orderItem.order.id)).fetchJoin()
+                             .join(orderProduct)
+                             .on(orderProduct.id.eq(orderItem.orderProduct.id)).fetchJoin()
+                             .leftJoin(orderOption)
+                             .on(orderItem.orderOption.id.eq(orderOption.id)).fetchJoin()
+                             .where(builder)
+                             .fetchFirst();
+
+        return Optional.ofNullable(new OrderVo(fetch));
     }
 }

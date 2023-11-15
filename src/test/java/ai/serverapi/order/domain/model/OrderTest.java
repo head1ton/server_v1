@@ -73,4 +73,17 @@ public class OrderTest {
             .hasMessageContaining("유효하지 않은 주문");
     }
 
+    @Test
+    @DisplayName("주문 취소 성공")
+    void cancel() {
+        Order order = Order.builder()
+                           .status(OrderStatus.ORDER)
+                           .orderName("테스트 주문")
+                           .build();
+
+        order.cancel();
+
+        assertThat(order.getStatus()).isEqualTo(OrderStatus.CANCEL);
+    }
+
 }

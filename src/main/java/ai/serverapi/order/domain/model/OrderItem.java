@@ -71,4 +71,8 @@ public class OrderItem {
                                 .type(orderProduct.getType())
                                 .build();
     }
+
+    public void cancel() {
+        this.status = OrderItemStatus.CANCEL;
+    }
 }

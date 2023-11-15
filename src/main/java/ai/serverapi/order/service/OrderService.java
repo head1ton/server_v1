@@ -1,5 +1,6 @@
 package ai.serverapi.order.service;
 
+import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
@@ -30,4 +31,8 @@ public interface OrderService {
         HttpServletRequest request);
 
     OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request);
+
+    OrderVo getOrderDetailBySeller(Long orderFirstId, HttpServletRequest request);
+
+    void cancelOrder(CancelOrderRequest cancelOrderRequest, HttpServletRequest request);
 }

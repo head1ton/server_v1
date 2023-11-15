@@ -2,6 +2,7 @@ package ai.serverapi.order.service;
 
 import ai.serverapi.global.util.MemberUtil;
 import ai.serverapi.member.domain.model.Member;
+import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
@@ -229,5 +230,30 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(orderId);
         order.checkOrder(member);
         return new OrderVo(OrderEntity.from(order));
+    }
+
+    @Override
+    public OrderVo getOrderDetailBySeller(final Long orderId,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        OrderVo order = orderRepository.findByIdAndSeller(orderId, seller);
+
+        return order;
+    }
+
+    @Override
+    @Transactional
+    public void cancelOrder(final CancelOrderRequest cancelOrderRequest,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Order order = orderRepository.findById(cancelOrderRequest.getOrderId());
+        order.checkOrder(member);
+        order.cancel();
+        orderRepository.save(order);
+
+        List<OrderItem> orderItemList = order.getOrderItemList();
+        orderItemList.forEach(OrderItem::cancel);
+        orderItemRepository.saveAll(orderItemList);
     }
 }

@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import ai.serverapi.member.domain.model.Member;
 import ai.serverapi.member.enums.MemberRole;
+import ai.serverapi.order.enums.OrderItemStatus;
 import ai.serverapi.order.enums.OrderStatus;
 import ai.serverapi.product.enums.ProductType;
 import java.time.LocalDateTime;
@@ -77,6 +78,18 @@ public class OrderItemTest {
 
         assertThat(orderItem.getProductTotalPrice()).isEqualTo(
             (orderProduct.getPrice() + orderOption.getExtraPrice()) * ea);
+    }
+
+    @Test
+    @DisplayName("order item 취소 성공")
+    void cancel() {
+        OrderItem orderItem = OrderItem.builder()
+                                       .status(OrderItemStatus.TEMP)
+                                       .build();
+
+        orderItem.cancel();
+
+        assertThat(orderItem.getStatus()).isEqualTo(OrderItemStatus.CANCEL);
     }
 
 //    @Test
