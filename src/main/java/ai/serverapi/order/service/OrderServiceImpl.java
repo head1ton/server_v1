@@ -230,4 +230,14 @@ public class OrderServiceImpl implements OrderService {
         order.checkOrder(member);
         return new OrderVo(OrderEntity.from(order));
     }
+
+    @Override
+    public OrderVo getOrderDetailBySeller(final Long orderId,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        OrderVo order = orderRepository.findByIdAndSeller(orderId, seller);
+
+        return order;
+    }
 }

@@ -30,4 +30,6 @@ public interface OrderService {
         HttpServletRequest request);
 
     OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request);
+
+    OrderVo getOrderDetailBySeller(Long orderFirstId, HttpServletRequest request);
 }

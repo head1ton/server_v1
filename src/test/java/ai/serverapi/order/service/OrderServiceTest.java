@@ -4,6 +4,7 @@ import static ai.serverapi.Base.MEMBER_LOGIN;
 import static ai.serverapi.Base.PRODUCT_ID_MASK;
 import static ai.serverapi.Base.PRODUCT_ID_NORMAL;
 import static ai.serverapi.Base.PRODUCT_OPTION_ID_MASK;
+import static ai.serverapi.Base.SELLER_LOGIN;
 import static ai.serverapi.OrderBase.ORDER_FIRST_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
@@ -14,6 +15,7 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.repository.DeliveryJpaRepository;
@@ -139,16 +141,44 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("관리자툴에서 주문 불러오기 성공")
+    @Transactional
+    void getOrderList() {
+        //given
+        request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
+        //when
+        Pageable pageable = Pageable.ofSize(10);
+        OrderResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
+            request);
+        //then
+        assertThat(complete.getTotalElements()).isGreaterThan(0);
+    }
+
+    @Test
+    @DisplayName("관리자툴에서 주문 불러오기 성공")
     @SqlGroup({
         @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
             "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
     })
-    void getOrderList() {
+    void getOrderDetailByMember() {
 
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
 
         Pageable pageable = Pageable.ofSize(10);
         OrderVo orderDetail = orderService.getOrderDetailByMember(ORDER_FIRST_ID, request);
+
+        assertThat(orderDetail).isNotNull();
+    }
+
+    @Test
+    @DisplayName("관리자툴에서 주문 상세 불러오기 성공")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void getOrderDetailBySeller() {
+        request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
+
+        OrderVo orderDetail = orderService.getOrderDetailBySeller(ORDER_FIRST_ID, request);
 
         assertThat(orderDetail).isNotNull();
     }
