@@ -18,6 +18,8 @@ import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.vo.OrderVo;
+import ai.serverapi.order.domain.entity.OrderEntity;
+import ai.serverapi.order.enums.OrderStatus;
 import ai.serverapi.order.repository.DeliveryJpaRepository;
 import ai.serverapi.order.repository.OrderItemJpaRepository;
 import ai.serverapi.order.repository.OrderJpaRepository;
@@ -181,5 +183,15 @@ class OrderServiceTest {
         OrderVo orderDetail = orderService.getOrderDetailBySeller(ORDER_FIRST_ID, request);
 
         assertThat(orderDetail).isNotNull();
+    }
+
+    @Test
+    @DisplayName("주문 취소 성공")
+    void cancelOrder() {
+        request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
+        OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
+        orderService.cancelOrder(ORDER_FIRST_ID, request);
+
+        assertThat(orderEntity.getStatus()).isEqualTo(OrderStatus.CANCEL);
     }
 }

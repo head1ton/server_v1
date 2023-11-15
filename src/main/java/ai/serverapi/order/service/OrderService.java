@@ -32,4 +32,6 @@ public interface OrderService {
     OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request);
 
     OrderVo getOrderDetailBySeller(Long orderFirstId, HttpServletRequest request);
+
+    void cancelOrder(Long orderId, HttpServletRequest request);
 }

@@ -240,4 +240,13 @@ public class OrderServiceImpl implements OrderService {
 
         return order;
     }
+
+    @Override
+    public void cancelOrder(final Long orderId, final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Order order = orderRepository.findById(orderId);
+        order.checkOrder(member);
+        order.cancel();
+        orderRepository.save(order);
+    }
 }
