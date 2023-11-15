@@ -1,4 +1,4 @@
-package ai.serverapi.member.repository;
+package ai.serverapi.product.repository;
 
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.product.domain.entity.SellerEntity;

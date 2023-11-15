@@ -21,7 +21,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import ai.serverapi.RestdocsBaseTest;
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.repository.MemberJpaRepository;
-import ai.serverapi.member.repository.SellerJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.product.controller.request.OptionRequest;
 import ai.serverapi.product.controller.request.ProductRequest;
@@ -34,6 +33,7 @@ import ai.serverapi.product.enums.OptionStatus;
 import ai.serverapi.product.repository.CategoryJpaRepository;
 import ai.serverapi.product.repository.OptionJpaRepository;
 import ai.serverapi.product.repository.ProductJpaRepository;
+import ai.serverapi.product.repository.SellerJpaRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;

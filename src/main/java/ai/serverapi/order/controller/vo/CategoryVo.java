@@ -25,9 +25,9 @@ public class CategoryVo {
     private LocalDateTime modifiedAt;
 
 
-    public static CategoryVo of(final CategoryEntity categoryEntity) {
+    public static CategoryVo of(final CategoryEntity category) {
         return new CategoryVo(
-            categoryEntity.getId(), categoryEntity.getName(), categoryEntity.getCreatedAt(),
-            categoryEntity.getModifiedAt());
+            category.getId(), category.getName(), category.getCreatedAt(),
+            category.getModifiedAt());
     }
 }

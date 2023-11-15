@@ -4,8 +4,10 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderInfoResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.data.domain.Pageable;
 
 public interface OrderService {
 
@@ -20,6 +22,6 @@ public interface OrderService {
         CompleteOrderRequest completeOrderRequest,
         HttpServletRequest request);
 
-//    OrderResponse getOrderListBySeller(Pageable pageable, String search, String status,
-//        HttpServletRequest request);
+    OrderResponse getOrderListBySeller(Pageable pageable, String search, String status,
+        HttpServletRequest request);
 }

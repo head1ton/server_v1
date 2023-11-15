@@ -1,5 +1,6 @@
-package ai.serverapi.product.controller.response;
+package ai.serverapi.product.controller.vo;
 
+import ai.serverapi.order.domain.entity.OrderOptionEntity;
 import ai.serverapi.product.domain.entity.OptionEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -43,8 +44,16 @@ public class OptionVo {
         return optionVoList;
     }
 
-    public static OptionVo of(final OptionEntity optionEntity) {
-        Optional<OptionEntity> optionalOption = Optional.ofNullable(optionEntity);
-        return optionalOption.isPresent() ? new OptionVo(optionEntity) : null;
+    public OptionVo(final OrderOptionEntity orderOption) {
+        this.optionId = orderOption.getOptionId();
+        this.name = orderOption.getName();
+        this.extraPrice = orderOption.getExtraPrice();
+        this.createdAt = orderOption.getCreatedAt();
+        this.modifiedAt = orderOption.getModifiedAt();
+    }
+
+    public static OptionVo of(final OrderOptionEntity option) {
+        Optional<OrderOptionEntity> optionalOption = Optional.ofNullable(option);
+        return optionalOption.isPresent() ? new OptionVo(option) : null;
     }
 }
