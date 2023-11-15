@@ -10,6 +10,7 @@ import ai.serverapi.order.controller.response.OrderInfoResponse;
 import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.vo.OrderVo;
+import ai.serverapi.order.domain.entity.OrderEntity;
 import ai.serverapi.order.domain.model.Delivery;
 import ai.serverapi.order.domain.model.Order;
 import ai.serverapi.order.domain.model.OrderItem;
@@ -220,5 +221,13 @@ public class OrderServiceImpl implements OrderService {
             member);
 
         return OrderResponse.from(orderPage);
+    }
+
+    @Override
+    public OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Order order = orderRepository.findById(orderId);
+        order.checkOrder(member);
+        return new OrderVo(OrderEntity.from(order));
     }
 }
