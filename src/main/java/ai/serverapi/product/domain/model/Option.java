@@ -1,6 +1,7 @@
 package ai.serverapi.product.domain.model;
 
 import ai.serverapi.order.controller.request.TempOrderDto;
+import ai.serverapi.product.domain.entity.ProductEntity;
 import ai.serverapi.product.enums.OptionStatus;
 import java.time.LocalDateTime;
 import lombok.Builder;
@@ -17,7 +18,7 @@ public class Option {
     private OptionStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private Product product;
+    private ProductEntity product;
 
     public void checkInStock(final TempOrderDto tempOrderDto) {
         int ea = tempOrderDto.getEa();
