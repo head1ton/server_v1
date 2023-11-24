@@ -1,7 +1,13 @@
 package ai.serverapi.global.base;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
-public record MessageVo(String message) {
+@AllArgsConstructor
+@Getter
+public final class MessageVo {
+
+    private final String message;
 }

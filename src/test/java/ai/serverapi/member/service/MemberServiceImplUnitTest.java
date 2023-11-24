@@ -309,7 +309,7 @@ class MemberServiceImplUnitTest {
 
         MessageVo messageVo = memberService.postIntroduce(postIntroduceRequest, request);
 
-        assertThat(messageVo.message()).contains("성공");
+        assertThat(messageVo.getMessage()).contains("성공");
     }
 
     @Test

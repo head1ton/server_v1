@@ -58,6 +58,9 @@ public class DeliveryEntity {
     private LocalDateTime modifiedAt;
 
     public static DeliveryEntity from(Delivery delivery) {
+        if (delivery == null) {
+            return null;
+        }
         DeliveryEntity deliveryEntity = new DeliveryEntity();
         deliveryEntity.id = delivery.getId();
         deliveryEntity.order = OrderEntity.from(delivery.getOrder());
@@ -81,6 +84,7 @@ public class DeliveryEntity {
     public Delivery toModel() {
         return Delivery.builder()
                        .id(id)
+                       .order(order.toModel())
                        .status(status)
                        .ownerName(ownerName)
                        .ownerZonecode(ownerZonecode)
