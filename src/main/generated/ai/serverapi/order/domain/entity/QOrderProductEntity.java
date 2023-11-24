@@ -42,6 +42,8 @@ public class QOrderProductEntity extends EntityPathBase<OrderProductEntity> {
 
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
+    public final QOrderOptionEntity orderOption;
+
     public final StringPath origin = createString("origin");
 
     public final NumberPath<Integer> originPrice = createNumber("originPrice", Integer.class);
@@ -85,6 +87,7 @@ public class QOrderProductEntity extends EntityPathBase<OrderProductEntity> {
     public QOrderProductEntity(Class<? extends OrderProductEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.category = inits.isInitialized("category") ? new ai.serverapi.product.domain.entity.QCategoryEntity(forProperty("category")) : null;
+        this.orderOption = inits.isInitialized("orderOption") ? new QOrderOptionEntity(forProperty("orderOption")) : null;
         this.seller = inits.isInitialized("seller") ? new ai.serverapi.product.domain.entity.QSellerEntity(forProperty("seller"), inits.get("seller")) : null;
     }
 

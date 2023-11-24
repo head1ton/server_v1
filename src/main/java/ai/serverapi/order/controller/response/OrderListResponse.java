@@ -1,6 +1,6 @@
 package ai.serverapi.order.controller.response;
 
-import ai.serverapi.order.controller.vo.OrderVo;
+import ai.serverapi.order.domain.model.Order;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -20,5 +20,5 @@ public class OrderListResponse {
     private int numberOfElements;
     private Boolean last;
     private Boolean empty;
-    private List<OrderVo> list;
+    private List<Order> list;
 }

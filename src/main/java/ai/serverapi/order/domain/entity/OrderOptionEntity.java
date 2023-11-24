@@ -36,6 +36,9 @@ public class OrderOptionEntity {
     private LocalDateTime modifiedAt;
 
     public static OrderOptionEntity from(OrderOption orderOption) {
+        if (orderOption == null) {
+            return null;
+        }
         OrderOptionEntity orderOptionEntity = new OrderOptionEntity();
         orderOptionEntity.id = orderOption.getId();
         orderOptionEntity.optionId = orderOption.getId();
