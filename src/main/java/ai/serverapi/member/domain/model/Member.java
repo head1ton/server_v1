@@ -1,5 +1,6 @@
 package ai.serverapi.member.domain.model;
 
+import ai.serverapi.member.controller.response.MemberResponse;
 import ai.serverapi.member.domain.entity.RecipientEntity;
 import ai.serverapi.member.enums.MemberRole;
 import ai.serverapi.member.enums.MemberStatus;
@@ -47,5 +48,28 @@ public class Member {
         this.recipientList = recipientList;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
+    }
+
+    public MemberResponse toResponse() {
+        return MemberResponse.builder()
+                             .memberId(id)
+                             .email(email)
+                             .nickname(nickname)
+                             .name(name)
+                             .role(role)
+                             .snsType(snsType)
+                             .status(status)
+                             .createdAt(createdAt)
+                             .modifiedAt(modifiedAt)
+                             .build();
+    }
+
+    public MemberResponse toResponseForOthers() {
+        return MemberResponse.builder()
+                             .email(email)
+                             .nickname(nickname)
+                             .name(name)
+                             .status(status)
+                             .build();
     }
 }

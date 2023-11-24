@@ -28,8 +28,6 @@ public class QDeliveryEntity extends EntityPathBase<DeliveryEntity> {
 
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
-    public final QOrderEntity order;
-
     public final QOrderItemEntity orderItem;
 
     public final StringPath ownerAddress = createString("ownerAddress");
@@ -72,7 +70,6 @@ public class QDeliveryEntity extends EntityPathBase<DeliveryEntity> {
 
     public QDeliveryEntity(Class<? extends DeliveryEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.order = inits.isInitialized("order") ? new QOrderEntity(forProperty("order"), inits.get("order")) : null;
         this.orderItem = inits.isInitialized("orderItem") ? new QOrderItemEntity(forProperty("orderItem"), inits.get("orderItem")) : null;
     }
 

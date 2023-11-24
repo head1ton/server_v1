@@ -16,7 +16,7 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
-import ai.serverapi.order.controller.response.OrderResponse;
+import ai.serverapi.order.controller.response.OrderListResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.domain.entity.OrderEntity;
 import ai.serverapi.order.enums.OrderItemStatus;
@@ -150,7 +150,7 @@ class OrderServiceTest {
         request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
         //when
         Pageable pageable = Pageable.ofSize(10);
-        OrderResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
+        OrderListResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
             request);
         //then
         assertThat(complete.getTotalElements()).isGreaterThan(0);

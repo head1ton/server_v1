@@ -3,6 +3,7 @@ package ai.serverapi.order.repository;
 import ai.serverapi.global.querydsl.QuerydslConfig;
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.order.domain.entity.OrderEntity;
+import ai.serverapi.order.domain.entity.QDeliveryEntity;
 import ai.serverapi.order.domain.entity.QOrderEntity;
 import ai.serverapi.order.domain.entity.QOrderItemEntity;
 import ai.serverapi.order.domain.entity.QOrderOptionEntity;
@@ -34,6 +35,7 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
         QOrderItemEntity orderItem = QOrderItemEntity.orderItemEntity;
         QOrderProductEntity orderProduct = QOrderProductEntity.orderProductEntity;
         QOrderOptionEntity orderOption = QOrderOptionEntity.orderOptionEntity;
+        QDeliveryEntity delivery = QDeliveryEntity.deliveryEntity;
 
         BooleanBuilder builder = new BooleanBuilder();
 
@@ -47,37 +49,36 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
             builder.and(order.member.id.eq(memberEntity.getId()));
         }
 
-        if (search != null || !search.equals("")) {
+        if (search != null && !search.isBlank()) {
             builder.and(orderProduct.mainTitle.contains(search));
         }
 
-        List<OrderEntity> fetch = q.query()
-                                   .selectFrom(order)
-                                   .join(orderItem)
-                                   .on(order.id.eq(orderItem.order.id))
+        List<OrderEntity> fetch = q.query().selectFrom(order)
+                                   .join(orderItem).on(order.id.eq(orderItem.order.id)).fetchJoin()
                                    .join(orderProduct)
-                                   .on(orderProduct.id.eq(orderItem.orderProduct.id))
+                                   .on(orderProduct.id.eq(orderItem.orderProduct.id)).fetchJoin()
                                    .leftJoin(orderOption)
-                                   .on(orderProduct.orderOption.id.eq(orderOption.id))
+                                   .on(orderOption.id.eq(orderItem.orderProduct.orderOption.id))
+                                   .fetchJoin()
+                                   .leftJoin(delivery).on(order.delivery.id.eq(delivery.id))
+                                   .fetchJoin()
                                    .where(builder)
-                                   .orderBy(order.createdAt.desc())
+                                   .orderBy(order.id.desc())
                                    .offset(pageable.getOffset())
                                    .limit(pageable.getPageSize())
                                    .fetch();
 
         List<Order> content = fetch.stream().map(OrderEntity::toModel).collect(Collectors.toList());
 
-        long total = q.query()
+        Long total = q.query()
                       .from(order)
-                      .join(orderItem)
-                      .on(order.id.eq(orderItem.order.id))
-                      .join(orderProduct)
-                      .on(orderProduct.id.eq(orderItem.orderProduct.id))
+                      .join(orderItem).on(order.id.eq(orderItem.order.id)).fetchJoin()
+                      .join(orderProduct).on(orderProduct.id.eq(orderItem.orderProduct.id))
+                      .fetchJoin()
                       .leftJoin(orderOption)
-                      .on(orderProduct.orderOption.id.eq(orderOption.id))
-                      .where(builder)
-                      .stream()
-                      .count();
+                      .on(orderOption.id.eq(orderItem.orderProduct.orderOption.id)).fetchJoin()
+                      .leftJoin(delivery).on(order.delivery.id.eq(delivery.id)).fetchJoin()
+                      .where(builder).stream().count();
 
         return new PageImpl<>(content, pageable, total);
     }

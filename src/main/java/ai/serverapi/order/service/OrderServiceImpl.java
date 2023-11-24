@@ -7,9 +7,9 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
-import ai.serverapi.order.controller.response.OrderInfoResponse;
-import ai.serverapi.order.controller.response.OrderResponse;
+import ai.serverapi.order.controller.response.OrderListResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
+import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.domain.model.Delivery;
 import ai.serverapi.order.domain.model.Order;
 import ai.serverapi.order.domain.model.OrderItem;
@@ -98,7 +98,7 @@ public class OrderServiceImpl implements OrderService {
 
             // OrderProduct 생성
             OrderProduct createOrderProduct = OrderProduct.create(product);
-            OrderProduct orderProduct = orderProductRepository.save(createOrderProduct);
+
             // OrderOption 생성
             OrderOption orderOption = null;
             if (product.getType() == ProductType.OPTION) {
@@ -106,11 +106,12 @@ public class OrderServiceImpl implements OrderService {
                 OrderOption createOrderOption = OrderOption.create(product.getOptionList(),
                     optionId);
                 orderOption = orderOptionRepository.save(createOrderOption);
+                createOrderProduct.addOption(orderOption);
             }
+            OrderProduct orderProduct = orderProductRepository.save(createOrderProduct);
 
             // OrderItem 생성
-            OrderItem orderItem = OrderItem.create(order, orderProduct, orderOption,
-                tempOrderDto.getEa());
+            OrderItem orderItem = OrderItem.create(order, orderProduct, tempOrderDto.getEa());
             orderItemList.add(orderItem);
         }
 
@@ -121,7 +122,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderInfoResponse getOrderInfo(Long orderId, HttpServletRequest request) {
+    public TempOrderResponse getOrderInfo(Long orderId, HttpServletRequest request) {
         /**
          * order id 와 member 정보로 임시 정보를 불러옴
          */
@@ -130,7 +131,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(orderId);
         order.checkOrder(member);
 
-        return OrderInfoResponse.create(order);
+        return TempOrderResponse.create(order);
     }
 
     /**
@@ -167,8 +168,8 @@ public class OrderServiceImpl implements OrderService {
             ProductType type = product.getType();
 
             int ea = orderItem.getEa();
-            Long optionId = orderItem.getOrderOption() == null ? null
-                : orderItem.getOrderOption().getOptionId();
+            Long optionId = orderItem.getOrderProduct().getOrderOption() == null ? null
+                : orderItem.getOrderProduct().getOrderOption().getOptionId();
 
             // 상품 마이너스 처리
             if (type == ProductType.NORMAL) {
@@ -181,20 +182,21 @@ public class OrderServiceImpl implements OrderService {
                 option.minusEa(ea);
                 optionRepository.save(option);
             }
-
-            // 배송 정보 등록
-            deliveryRepository.save(Delivery.create(completeOrderRequest, order));
         });
+
+        // 배송 정보 등록
+        Delivery delivery = deliveryRepository.save(Delivery.create(completeOrderRequest));
 
         order.complete();
         order.createOrderNumber();
+        order.delivery(delivery);
         orderRepository.save(order);
 
         return CompleteOrderResponse.from(order);
     }
 
     @Override
-    public OrderResponse getOrderListBySeller(Pageable pageable, String search, String status,
+    public OrderListResponse getOrderListBySeller(Pageable pageable, String search, String status,
         HttpServletRequest request) {
         /**
          * member로 seller 정보 가져오기
@@ -207,7 +209,7 @@ public class OrderServiceImpl implements OrderService {
         Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, seller,
             null);
 
-        return OrderResponse.from(orderPage);
+        return OrderListResponse.from(orderPage);
     }
 
 //    @Override

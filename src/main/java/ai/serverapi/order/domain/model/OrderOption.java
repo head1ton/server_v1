@@ -26,14 +26,13 @@ public class OrderOption {
                                   .orElseThrow(() -> new IllegalArgumentException(
                                       "유효하지 않은 옵션입니다. option id = " + targetId));
         return OrderOption.builder()
-                          .id(option.getId())
                           .optionId(option.getId())
                           .name(option.getName())
                           .extraPrice(option.getExtraPrice())
                           .ea(option.getEa())
                           .status(option.getStatus())
-                          .createdAt(option.getCreatedAt())
-                          .modifiedAt(option.getModifiedAt())
+                          .createdAt(LocalDateTime.now())
+                          .modifiedAt(LocalDateTime.now())
                           .build();
     }
 

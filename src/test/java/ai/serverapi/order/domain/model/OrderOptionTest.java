@@ -46,7 +46,7 @@ public class OrderOptionTest {
         );
 
         OrderOption orderOption = OrderOption.create(optionList, targetId);
-        assertThat(orderOption.getId()).isEqualTo(targetId);
+        assertThat(orderOption.getOptionId()).isEqualTo(targetId);
     }
 
 }

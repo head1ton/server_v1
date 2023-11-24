@@ -59,8 +59,8 @@ public class OrderProduct {
                            .viewCnt(product.getViewCnt())
                            .status(product.getStatus())
                            .type(product.getType())
-                           .createdAt(product.getCreatedAt())
-                           .modifiedAt(product.getModifiedAt())
+                           .createdAt(LocalDateTime.now())
+                           .modifiedAt(LocalDateTime.now())
                            .build();
     }
 
@@ -71,8 +71,10 @@ public class OrderProduct {
     public OrderProductResponse toResponse() {
         return OrderProductResponse.builder()
                                    .orderProductId(id)
+                                   .productId(productId)
                                    .seller(seller.toResponse())
                                    .category(category.toResponse())
+                                   .option(orderOption == null ? null : orderOption.toResponse())
                                    .mainTitle(mainTitle)
                                    .mainExplanation(mainExplanation)
                                    .productMainExplanation(productMainExplanation)

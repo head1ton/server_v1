@@ -10,7 +10,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class OrderInfoResponseTest {
+public class TempOrderResponseTest {
 
 
     @Test
@@ -45,9 +45,9 @@ public class OrderInfoResponseTest {
                            ))
                            .build();
         //when
-        OrderInfoResponse orderInfoResponse = OrderInfoResponse.create(order);
+        TempOrderResponse tempOrderResponse = TempOrderResponse.create(order);
         //then
-        Assertions.assertThat(orderInfoResponse.getOrderItemList().get(0).getProductId())
+        Assertions.assertThat(tempOrderResponse.getOrderItemList().get(0).getProductId())
                   .isEqualTo(2L);
     }
 }
