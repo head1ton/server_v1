@@ -3,7 +3,6 @@ package ai.serverapi.order.repository.port;
 
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.domain.model.Member;
-import ai.serverapi.order.controller.vo.OrderVo;
 import ai.serverapi.order.domain.entity.OrderEntity;
 import ai.serverapi.order.domain.model.Order;
 import ai.serverapi.order.enums.OrderStatus;
@@ -35,7 +34,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Page<OrderVo> findAll(final Pageable pageable, final String search,
+    public Page<Order> findAll(final Pageable pageable, final String search,
         final OrderStatus status,
         final Seller seller,
         final Member member) {
@@ -43,10 +42,10 @@ public class OrderRepositoryImpl implements OrderRepository {
             SellerEntity.from(seller), MemberEntity.from(member));
     }
 
-    @Override
-    public OrderVo findByIdAndSeller(final Long orderId, final Seller seller) {
-        return orderCustomJpaRepository.findByIdAndSeller(orderId, SellerEntity.from(seller))
-                                       .orElseThrow(
-                                           () -> new IllegalArgumentException("유효하지 않은 주문 번호입니다."));
-    }
+//    @Override
+//    public OrderVo findByIdAndSeller(final Long orderId, final Seller seller) {
+//        return orderCustomJpaRepository.findByIdAndSeller(orderId, SellerEntity.from(seller))
+//                                       .orElseThrow(
+//                                           () -> new IllegalArgumentException("유효하지 않은 주문 번호입니다."));
+//    }
 }

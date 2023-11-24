@@ -1,7 +1,7 @@
 package ai.serverapi.order.controller.response;
 
-import ai.serverapi.order.controller.vo.CategoryVo;
-import ai.serverapi.order.controller.vo.SellerVo;
+import ai.serverapi.product.domain.model.Category;
+import ai.serverapi.product.domain.model.Seller;
 import ai.serverapi.product.enums.ProductStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -36,6 +36,6 @@ public class TempOrder {
     private ProductStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private SellerVo seller;
-    private CategoryVo category;
+    private Seller seller;
+    private Category category;
 }

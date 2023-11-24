@@ -6,6 +6,6 @@ public interface OrderOptionRepository {
 
     void saveAll(Iterable<OrderOption> orderOptionList);
 
-    OrderOption save(OrderOption createOrderOption);
+    OrderOption save(OrderOption orderOption);
 
 }

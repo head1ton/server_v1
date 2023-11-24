@@ -5,6 +5,7 @@ import ai.serverapi.product.controller.response.SellerResponse;
 import ai.serverapi.product.enums.ProductStatus;
 import ai.serverapi.product.enums.ProductType;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.time.LocalDateTime;
@@ -14,16 +15,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(Include.NON_NULL)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @Builder
-public class OrderProductResponse {
+public class TempOrderItemResponse {
 
-    private Long orderProductId;
     private Long productId;
-    private SellerResponse seller;
-    private CategoryResponse category;
-    private OrderOptionResponse option;
     private String mainTitle;
     private String mainExplanation;
     private String productMainExplanation;
@@ -40,6 +37,12 @@ public class OrderProductResponse {
     private Long viewCnt;
     private ProductStatus status;
     private ProductType type;
+    private OrderOptionResponse option;
+    private SellerResponse seller;
+    private CategoryResponse category;
+    private int ea;
+    private int productPrice;
+    private int productTotalPrice;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 }

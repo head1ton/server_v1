@@ -32,10 +32,6 @@ public class DeliveryEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
-    private OrderEntity order;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_item_id")
     private OrderItemEntity orderItem;
 
@@ -58,10 +54,11 @@ public class DeliveryEntity {
     private LocalDateTime modifiedAt;
 
     public static DeliveryEntity from(Delivery delivery) {
+        if (delivery == null) {
+            return null;
+        }
         DeliveryEntity deliveryEntity = new DeliveryEntity();
         deliveryEntity.id = delivery.getId();
-        deliveryEntity.order = OrderEntity.from(delivery.getOrder());
-        deliveryEntity.orderItem = OrderItemEntity.from(delivery.getOrderItem());
         deliveryEntity.status = delivery.getStatus();
         deliveryEntity.ownerName = delivery.getOwnerName();
         deliveryEntity.ownerZonecode = delivery.getOwnerZonecode();

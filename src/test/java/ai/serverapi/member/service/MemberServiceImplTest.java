@@ -101,7 +101,7 @@ class MemberServiceImplTest {
 
         MessageVo messageVo = memberService.patchMember(patchMemberRequest, request);
 
-        assertThat(messageVo.message()).contains("회원 정보 수정 성공");
+        assertThat(messageVo.getMessage()).contains("회원 정보 수정 성공");
     }
 
     @Test
@@ -148,7 +148,7 @@ class MemberServiceImplTest {
 
         MessageVo messageVo = memberService.putSeller(putSellerRequest, request);
 
-        assertThat(messageVo.message()).contains("수정 성공");
+        assertThat(messageVo.getMessage()).contains("수정 성공");
         MemberEntity memberEntity = memberJpaRepository.findByEmail(SELLER_EMAIL).get();
         SellerEntity sellerEntity = sellerJpaRepository.findByMember(memberEntity).get();
         assertThat(sellerEntity.getCompany()).isEqualTo(changeCompany);

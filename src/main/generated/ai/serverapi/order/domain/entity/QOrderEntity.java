@@ -24,7 +24,7 @@ public class QOrderEntity extends EntityPathBase<OrderEntity> {
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
-    public final ListPath<DeliveryEntity, QDeliveryEntity> deliveryList = this.<DeliveryEntity, QDeliveryEntity>createList("deliveryList", DeliveryEntity.class, QDeliveryEntity.class, PathInits.DIRECT2);
+    public final QDeliveryEntity delivery;
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -58,6 +58,7 @@ public class QOrderEntity extends EntityPathBase<OrderEntity> {
 
     public QOrderEntity(Class<? extends OrderEntity> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
+        this.delivery = inits.isInitialized("delivery") ? new QDeliveryEntity(forProperty("delivery"), inits.get("delivery")) : null;
         this.member = inits.isInitialized("member") ? new ai.serverapi.member.domain.entity.QMemberEntity(forProperty("member")) : null;
     }
 

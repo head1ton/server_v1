@@ -1,12 +1,14 @@
 package ai.serverapi.order.domain.model;
 
 import ai.serverapi.member.domain.model.Member;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.enums.OrderStatus;
 import ai.serverapi.product.domain.model.Product;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -18,7 +20,7 @@ public class Order {
     private Member member;
     private String orderNumber;
     private List<OrderItem> orderItemList;
-    private List<Delivery> deliveryList;
+    private Delivery delivery;
     private OrderStatus status;
     private String orderName;
     private LocalDateTime createdAt;
@@ -64,5 +66,24 @@ public class Order {
 
     public void cancel() {
         this.status = OrderStatus.CANCEL;
+    }
+
+    public OrderResponse toResponse() {
+        return OrderResponse.builder()
+                            .orderId(id)
+                            .member(member.toResponseForOthers())
+                            .orderNumber(orderNumber)
+                            .orderItemList(orderItemList.stream().map(OrderItem::toResponse)
+                                                        .collect(Collectors.toList()))
+                            .delivery(delivery == null ? null : delivery.toResponse())
+                            .status(status)
+                            .orderName(orderName)
+                            .createdAt(createdAt)
+                            .modifiedAt(modifiedAt)
+                            .build();
+    }
+
+    public void delivery(final Delivery delivery) {
+        this.delivery = delivery;
     }
 }

@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -51,8 +52,9 @@ public class OrderEntity {
     private List<OrderItemEntity> orderItemList = new ArrayList<>();
 
     @NotAudited
-    @OneToMany(mappedBy = "order")
-    private List<DeliveryEntity> deliveryList = new ArrayList<>();
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "delivery_id")
+    private DeliveryEntity delivery;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -92,10 +94,7 @@ public class OrderEntity {
                                             .orElse(new ArrayList<>()).stream()
                                             .map(OrderItemEntity::from).collect(
                 Collectors.toList());
-        orderEntity.deliveryList = Optional.ofNullable(order.getDeliveryList())
-                                           .orElse(new ArrayList<>()).stream()
-                                           .map(DeliveryEntity::from).collect(
-                Collectors.toList());
+        orderEntity.delivery = DeliveryEntity.from(order.getDelivery());
         orderEntity.status = order.getStatus();
         orderEntity.orderName = order.getOrderName();
         orderEntity.createdAt = order.getCreatedAt();
@@ -115,8 +114,7 @@ public class OrderEntity {
                     .orderNumber(orderNumber)
                     .orderItemList(orderItemList.stream().map(OrderItemEntity::toModel)
                                                 .collect(Collectors.toList()))
-                    .deliveryList(deliveryList.stream().map(DeliveryEntity::toModel)
-                                              .collect(Collectors.toList()))
+                    .delivery(delivery == null ? null : delivery.toModel())
                     .status(status)
                     .orderName(orderName)
                     .createdAt(createdAt)

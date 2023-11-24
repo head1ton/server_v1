@@ -25,7 +25,7 @@ public class OrderOptionRepositoryImpl implements OrderOptionRepository {
     }
 
     @Override
-    public OrderOption save(final OrderOption createOrderOption) {
-        return orderOptionJpaRepository.save(OrderOptionEntity.from(createOrderOption)).toModel();
+    public OrderOption save(final OrderOption orderOption) {
+        return orderOptionJpaRepository.save(OrderOptionEntity.from(orderOption)).toModel();
     }
 }

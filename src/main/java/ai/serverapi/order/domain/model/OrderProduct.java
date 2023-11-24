@@ -18,6 +18,7 @@ public class OrderProduct {
     private Long productId;
     private Seller seller;
     private Category category;
+    private OrderOption orderOption;
     private String mainTitle;
     private String mainExplanation;
     private String productMainExplanation;
@@ -58,16 +59,22 @@ public class OrderProduct {
                            .viewCnt(product.getViewCnt())
                            .status(product.getStatus())
                            .type(product.getType())
-                           .createdAt(product.getCreatedAt())
-                           .modifiedAt(product.getModifiedAt())
+                           .createdAt(LocalDateTime.now())
+                           .modifiedAt(LocalDateTime.now())
                            .build();
+    }
+
+    public void addOption(OrderOption orderOption) {
+        this.orderOption = orderOption;
     }
 
     public OrderProductResponse toResponse() {
         return OrderProductResponse.builder()
                                    .orderProductId(id)
+                                   .productId(productId)
                                    .seller(seller.toResponse())
                                    .category(category.toResponse())
+                                   .option(orderOption == null ? null : orderOption.toResponse())
                                    .mainTitle(mainTitle)
                                    .mainExplanation(mainExplanation)
                                    .productMainExplanation(productMainExplanation)

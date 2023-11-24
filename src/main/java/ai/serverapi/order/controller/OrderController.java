@@ -7,10 +7,9 @@ import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
-import ai.serverapi.order.controller.response.OrderInfoResponse;
-import ai.serverapi.order.controller.response.OrderResponse;
+import ai.serverapi.order.controller.response.OrderListResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
-import ai.serverapi.order.controller.vo.OrderVo;
+import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.service.OrderService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -52,7 +51,7 @@ public class OrderController {
     }
 
     @GetMapping("/temp/{order_id}")
-    public ResponseEntity<Api<OrderInfoResponse>> getOrderInfo(
+    public ResponseEntity<Api<TempOrderResponse>> getOrderInfo(
         @PathVariable(name = "order_id") Long orderId,
         HttpServletRequest request) {
         return ResponseEntity.ok(
@@ -77,7 +76,7 @@ public class OrderController {
     }
 
     @GetMapping("/seller")
-    public ResponseEntity<Api<OrderResponse>> getOrderBySeller(
+    public ResponseEntity<Api<OrderListResponse>> getOrderBySeller(
         @PageableDefault(size = 10, page = 0) Pageable pageable,
         @RequestParam(required = false, name = "search") String search,
         @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
@@ -88,39 +87,39 @@ public class OrderController {
         );
     }
 
-    @GetMapping("/seller/{order_id}")
-    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
-        @PathVariable(name = "order_id") Long orderId,
-        HttpServletRequest request
-    ) {
-        return ResponseEntity.ok(
-            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-                orderService.getOrderDetailBySeller(orderId, request))
-        );
-    }
+//    @GetMapping("/seller/{order_id}")
+//    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
+//        @PathVariable(name = "order_id") Long orderId,
+//        HttpServletRequest request
+//    ) {
+//        return ResponseEntity.ok(
+//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+//                orderService.getOrderDetailBySeller(orderId, request))
+//        );
+//    }
 
-    @GetMapping("/member")
-    public ResponseEntity<Api<OrderResponse>> getOrderByMember(
-        @PageableDefault(size = 10, page = 0) Pageable pageable,
-        @RequestParam(required = false, name = "search") String search,
-        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
-        HttpServletRequest request) {
-        return ResponseEntity.ok(
-            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-                orderService.getOrderListByMember(pageable, search, status, request))
-        );
-    }
+//    @GetMapping("/member")
+//    public ResponseEntity<Api<OrderResponse>> getOrderByMember(
+//        @PageableDefault(size = 10, page = 0) Pageable pageable,
+//        @RequestParam(required = false, name = "search") String search,
+//        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+//        HttpServletRequest request) {
+//        return ResponseEntity.ok(
+//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+//                orderService.getOrderListByMember(pageable, search, status, request))
+//        );
+//    }
 
-    @GetMapping("/member/{order_id}")
-    public ResponseEntity<Api<OrderVo>> getOrderDetailByMember(
-        @PathVariable(name = "order_id") Long orderId,
-        HttpServletRequest request
-    ) {
-        return ResponseEntity.ok(
-            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-                orderService.getOrderDetailByMember(orderId, request))
-        );
-    }
+//    @GetMapping("/member/{order_id}")
+//    public ResponseEntity<Api<OrderVo>> getOrderDetailByMember(
+//        @PathVariable(name = "order_id") Long orderId,
+//        HttpServletRequest request
+//    ) {
+//        return ResponseEntity.ok(
+//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+//                orderService.getOrderDetailByMember(orderId, request))
+//        );
+//    }
 
     @PatchMapping("/member/cancel")
     public ResponseEntity<Api<MessageVo>> cancelOrder(

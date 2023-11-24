@@ -344,7 +344,7 @@ class ProductServiceImplTest {
         MessageVo messageVo = productService.addViewCnt(
             AddViewCntRequest.builder().productId(productEntity.getId()).build());
 
-        assertThat(messageVo.message()).contains("조회수 증가 성공");
+        assertThat(messageVo.getMessage()).contains("조회수 증가 성공");
         assertThat(productEntity.getViewCnt()).isEqualTo(1);
     }
 
