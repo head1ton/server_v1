@@ -207,8 +207,8 @@ public class OrderServiceImpl implements OrderService {
         OrderStatus orderStatus = OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
         Seller seller = sellerRepository.findByMember(member);
 
-        Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, seller,
-            null);
+        Page<Order> orderPage = orderRepository.findAllBySeller(pageable, search, orderStatus,
+            seller);
 
         return OrderListResponse.from(orderPage);
     }
@@ -224,7 +224,7 @@ public class OrderServiceImpl implements OrderService {
 //
 //        return OrderResponse.from(orderPage);
 //    }
-//
+
 @Override
 public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest request) {
     Member member = memberUtil.getMember(request).toModel();
@@ -263,8 +263,9 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
         final String status,
         final HttpServletRequest request) {
         Member member = memberUtil.getMember(request).toModel();
-        OrderStatus orderStatus = OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
-        Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, null,
+        OrderStatus orderStatus =
+            status == null ? null : OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
+        Page<Order> orderPage = orderRepository.findAllByMember(pageable, search, orderStatus,
             member);
         return OrderListResponse.from(orderPage);
     }

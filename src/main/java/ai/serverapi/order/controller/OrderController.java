@@ -67,7 +67,7 @@ public class OrderController {
     public ResponseEntity<Api<OrderListResponse>> getOrderByMember(
         @PageableDefault(size = 10, page = 0) Pageable pageable,
         @RequestParam(required = false, name = "search") String search,
-        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+        @RequestParam(required = false, name = "status") String status,
         HttpServletRequest request) {
         return ResponseEntity.ok(
             new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
@@ -92,7 +92,7 @@ public class OrderController {
     public ResponseEntity<Api<OrderListResponse>> getOrderBySeller(
         @PageableDefault(size = 10, page = 0) Pageable pageable,
         @RequestParam(required = false, name = "search") String search,
-        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+        @RequestParam(required = false, name = "status") String status,
         HttpServletRequest request) {
         return ResponseEntity.ok(
             new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,

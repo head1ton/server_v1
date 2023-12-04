@@ -28,9 +28,62 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
     private final QuerydslConfig q;
 
     @Override
-    public Page<Order> findAll(final Pageable pageable, final String search,
+    public Page<Order> findAllBySeller(final Pageable pageable, final String search,
         final OrderStatus status,
-        final SellerEntity sellerEntity,
+        final SellerEntity sellerEntity) {
+        QOrderEntity order = QOrderEntity.orderEntity;
+        QOrderItemEntity orderItem = QOrderItemEntity.orderItemEntity;
+        QOrderProductEntity orderProduct = QOrderProductEntity.orderProductEntity;
+        QOrderOptionEntity orderOption = QOrderOptionEntity.orderOptionEntity;
+        QDeliveryEntity delivery = QDeliveryEntity.deliveryEntity;
+
+        BooleanBuilder builder = new BooleanBuilder();
+
+        builder.and(order.status.eq(OrderStatus.COMPLETE));
+
+        if (status != null) {
+            builder.and(order.status.eq(status));
+        } else {
+            builder.and(order.status.ne(OrderStatus.TEMP));
+        }
+
+        if (search != null && !search.isBlank()) {
+            builder.and(orderProduct.mainTitle.contains(search));
+        }
+
+        List<OrderEntity> fetch = q.query().selectFrom(order)
+                                   .join(orderItem).on(order.id.eq(orderItem.order.id)).fetchJoin()
+                                   .join(orderProduct)
+                                   .on(orderProduct.id.eq(orderItem.orderProduct.id)).fetchJoin()
+                                   .leftJoin(orderOption)
+                                   .on(orderOption.id.eq(orderItem.orderProduct.orderOption.id))
+                                   .fetchJoin()
+                                   .leftJoin(delivery).on(order.delivery.id.eq(delivery.id))
+                                   .fetchJoin()
+                                   .where(builder)
+                                   .orderBy(order.id.desc())
+                                   .offset(pageable.getOffset())
+                                   .limit(pageable.getPageSize())
+                                   .fetch();
+
+        List<Order> content = fetch.stream().map(OrderEntity::toModel).collect(Collectors.toList());
+
+        Long total = q.query()
+                      .from(order)
+                      .join(orderItem).on(order.id.eq(orderItem.order.id)).fetchJoin()
+                      .join(orderProduct).on(orderProduct.id.eq(orderItem.orderProduct.id))
+                      .fetchJoin()
+                      .leftJoin(orderOption)
+                      .on(orderOption.id.eq(orderItem.orderProduct.orderOption.id)).fetchJoin()
+                      .leftJoin(delivery).on(order.delivery.id.eq(delivery.id)).fetchJoin()
+                      .where(builder).stream().count();
+
+        return new PageImpl<>(content, pageable, total);
+    }
+
+    @Override
+    public Page<Order> findAllByMember(final Pageable pageable, final String search,
+        final OrderStatus status,
         final MemberEntity memberEntity) {
         QOrderEntity order = QOrderEntity.orderEntity;
         QOrderItemEntity orderItem = QOrderItemEntity.orderItemEntity;
@@ -42,12 +95,10 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
 
         builder.and(order.status.eq(OrderStatus.COMPLETE));
 
-        if (sellerEntity != null) {
-            builder.and(orderProduct.seller.id.eq(sellerEntity.getId()));
-        }
-
-        if (memberEntity != null) {
-            builder.and(order.member.id.eq(memberEntity.getId()));
+        if (status != null) {
+            builder.and(order.status.eq(status));
+        } else {
+            builder.and(order.status.ne(OrderStatus.TEMP));
         }
 
         if (search != null && !search.isBlank()) {
