@@ -256,4 +256,15 @@ public class OrderServiceImpl implements OrderService {
         orderItemList.forEach(OrderItem::cancel);
         orderItemRepository.saveAll(orderItemList);
     }
+
+    @Override
+    public OrderListResponse getOrderListByMember(final Pageable pageable, final String search,
+        final String status,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        OrderStatus orderStatus = OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
+        Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, null,
+            member);
+        return OrderListResponse.from(orderPage);
+    }
 }

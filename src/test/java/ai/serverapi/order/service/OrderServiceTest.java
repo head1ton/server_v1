@@ -156,6 +156,18 @@ class OrderServiceTest {
         assertThat(complete.getTotalElements()).isGreaterThan(0);
     }
 
+    @Test
+    @DisplayName("사용자 주문 불러오기 성공")
+    void getOrderListByMember() {
+        request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
+
+        Pageable pageable = Pageable.ofSize(10);
+        OrderListResponse complete = orderService.getOrderListByMember(pageable, "", "COMPLETE",
+            request);
+
+        assertThat(complete.getTotalElements()).isGreaterThan(0);
+    }
+
 //    @Test
 //    @DisplayName("관리자툴에서 주문 불러오기 성공")
 //    @SqlGroup({
