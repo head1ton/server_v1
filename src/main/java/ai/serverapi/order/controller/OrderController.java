@@ -8,6 +8,7 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderListResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.service.OrderService;
@@ -98,17 +99,17 @@ public class OrderController {
                 orderService.getOrderListBySeller(pageable, search, status, request))
         );
     }
-//    @GetMapping("/seller/{order_id}")
-//    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
-//        @PathVariable(name = "order_id") Long orderId,
-//        HttpServletRequest request
-//    ) {
-//        return ResponseEntity.ok(
-//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-//                orderService.getOrderDetailBySeller(orderId, request))
-//        );
 
-//    }
+    @GetMapping("/seller/{order_id}")
+    public ResponseEntity<Api<OrderResponse>> getOrderDetailBySeller(
+        @PathVariable(name = "order_id") Long orderId,
+        HttpServletRequest request
+    ) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderDetailBySeller(orderId, request))
+        );
+    }
 
 //    @GetMapping("/member/{order_id}")
 //    public ResponseEntity<Api<OrderVo>> getOrderDetailByMember(
