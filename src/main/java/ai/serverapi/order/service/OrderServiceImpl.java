@@ -8,6 +8,7 @@ import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderListResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.domain.model.Delivery;
@@ -206,8 +207,8 @@ public class OrderServiceImpl implements OrderService {
         OrderStatus orderStatus = OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
         Seller seller = sellerRepository.findByMember(member);
 
-        Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, seller,
-            null);
+        Page<Order> orderPage = orderRepository.findAllBySeller(pageable, search, orderStatus,
+            seller);
 
         return OrderListResponse.from(orderPage);
     }
@@ -223,14 +224,14 @@ public class OrderServiceImpl implements OrderService {
 //
 //        return OrderResponse.from(orderPage);
 //    }
-//
-//    @Override
-//    public OrderVo getOrderDetailByMember(Long orderId, HttpServletRequest request) {
-//        Member member = memberUtil.getMember(request).toModel();
-//        Order order = orderRepository.findById(orderId);
-//        order.checkOrder(member);
-//        return new OrderVo(OrderEntity.from(order));
-//    }
+
+@Override
+public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest request) {
+    Member member = memberUtil.getMember(request).toModel();
+    Order order = orderRepository.findById(orderId);
+    order.checkOrder(member);
+    return OrderResponse.from(order);
+}
 //
 //    @Override
 //    public OrderVo getOrderDetailBySeller(final Long orderId,
@@ -255,5 +256,26 @@ public class OrderServiceImpl implements OrderService {
         List<OrderItem> orderItemList = order.getOrderItemList();
         orderItemList.forEach(OrderItem::cancel);
         orderItemRepository.saveAll(orderItemList);
+    }
+
+    @Override
+    public OrderListResponse getOrderListByMember(final Pageable pageable, final String search,
+        final String status,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        OrderStatus orderStatus =
+            status == null ? null : OrderStatus.valueOf(status.toUpperCase(Locale.ROOT));
+        Page<Order> orderPage = orderRepository.findAllByMember(pageable, search, orderStatus,
+            member);
+        return OrderListResponse.from(orderPage);
+    }
+
+    @Override
+    public OrderResponse getOrderDetailBySeller(final Long orderId,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        Order order = orderRepository.findByIdAndSeller(orderId, seller);
+        return OrderResponse.from(order);
     }
 }

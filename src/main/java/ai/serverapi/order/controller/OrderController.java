@@ -8,6 +8,7 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderListResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.service.OrderService;
@@ -62,6 +63,18 @@ public class OrderController {
         );
     }
 
+    @GetMapping("/member")
+    public ResponseEntity<Api<OrderListResponse>> getOrderByMember(
+        @PageableDefault(size = 10, page = 0) Pageable pageable,
+        @RequestParam(required = false, name = "search") String search,
+        @RequestParam(required = false, name = "status") String status,
+        HttpServletRequest request) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderListByMember(pageable, search, status, request))
+        );
+    }
+
     @PatchMapping("/complete")
     public ResponseEntity<Api<CompleteOrderResponse>> completeOrder(
         @RequestBody @Validated CompleteOrderRequest completeOrderRequest,
@@ -79,7 +92,7 @@ public class OrderController {
     public ResponseEntity<Api<OrderListResponse>> getOrderBySeller(
         @PageableDefault(size = 10, page = 0) Pageable pageable,
         @RequestParam(required = false, name = "search") String search,
-        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
+        @RequestParam(required = false, name = "status") String status,
         HttpServletRequest request) {
         return ResponseEntity.ok(
             new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
@@ -87,39 +100,27 @@ public class OrderController {
         );
     }
 
-//    @GetMapping("/seller/{order_id}")
-//    public ResponseEntity<Api<OrderVo>> getOrderDetailBySeller(
-//        @PathVariable(name = "order_id") Long orderId,
-//        HttpServletRequest request
-//    ) {
-//        return ResponseEntity.ok(
-//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-//                orderService.getOrderDetailBySeller(orderId, request))
-//        );
-//    }
+    @GetMapping("/seller/{order_id}")
+    public ResponseEntity<Api<OrderResponse>> getOrderDetailBySeller(
+        @PathVariable(name = "order_id") Long orderId,
+        HttpServletRequest request
+    ) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderDetailBySeller(orderId, request))
+        );
+    }
 
-//    @GetMapping("/member")
-//    public ResponseEntity<Api<OrderResponse>> getOrderByMember(
-//        @PageableDefault(size = 10, page = 0) Pageable pageable,
-//        @RequestParam(required = false, name = "search") String search,
-//        @RequestParam(required = false, name = "status", defaultValue = "complete") String status,
-//        HttpServletRequest request) {
-//        return ResponseEntity.ok(
-//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-//                orderService.getOrderListByMember(pageable, search, status, request))
-//        );
-//    }
-
-//    @GetMapping("/member/{order_id}")
-//    public ResponseEntity<Api<OrderVo>> getOrderDetailByMember(
-//        @PathVariable(name = "order_id") Long orderId,
-//        HttpServletRequest request
-//    ) {
-//        return ResponseEntity.ok(
-//            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
-//                orderService.getOrderDetailByMember(orderId, request))
-//        );
-//    }
+    @GetMapping("/member/{order_id}")
+    public ResponseEntity<Api<OrderResponse>> getOrderDetailByMember(
+        @PathVariable(name = "order_id") Long orderId,
+        HttpServletRequest request
+    ) {
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                orderService.getOrderDetailByMember(orderId, request))
+        );
+    }
 
     @PatchMapping("/member/cancel")
     public ResponseEntity<Api<MessageVo>> cancelOrder(

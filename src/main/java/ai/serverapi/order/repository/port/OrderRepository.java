@@ -13,8 +13,13 @@ public interface OrderRepository {
 
     Order findById(Long orderId);
 
-    Page<Order> findAll(Pageable pageable, String search, OrderStatus status,
-        Seller seller, Member member);
+    Page<Order> findAllBySeller(Pageable pageable, String search, OrderStatus status,
+        Seller seller);
+
+    Page<Order> findAllByMember(Pageable pageable, String search, OrderStatus status,
+        Member member);
+
+    Order findByIdAndSeller(Long orderId, Seller seller);
 
 //    OrderVo findByIdAndSeller(Long orderId, Seller seller);
 }

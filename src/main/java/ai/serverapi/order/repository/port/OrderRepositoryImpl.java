@@ -34,12 +34,26 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Page<Order> findAll(final Pageable pageable, final String search,
+    public Page<Order> findAllBySeller(final Pageable pageable, final String search,
         final OrderStatus status,
-        final Seller seller,
+        final Seller seller) {
+        return orderCustomJpaRepository.findAllBySeller(pageable, search, status,
+            SellerEntity.from(seller));
+    }
+
+    @Override
+    public Page<Order> findAllByMember(final Pageable pageable, final String search,
+        final OrderStatus status,
         final Member member) {
-        return orderCustomJpaRepository.findAll(pageable, search, status,
-            SellerEntity.from(seller), MemberEntity.from(member));
+        return orderCustomJpaRepository.findAllByMember(pageable, search, status,
+            MemberEntity.from(member));
+    }
+
+    @Override
+    public Order findByIdAndSeller(final Long orderId, final Seller seller) {
+        return orderCustomJpaRepository.findByIdAndSeller(orderId, SellerEntity.from(seller))
+                                       .orElseThrow(
+                                           () -> new IllegalArgumentException("유효하지 않은 주문 번호입니다."));
     }
 
 //    @Override
