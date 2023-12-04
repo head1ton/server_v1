@@ -8,6 +8,7 @@ import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderListResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.response.TempOrderResponse;
 import ai.serverapi.order.domain.model.Delivery;
@@ -266,5 +267,14 @@ public class OrderServiceImpl implements OrderService {
         Page<Order> orderPage = orderRepository.findAll(pageable, search, orderStatus, null,
             member);
         return OrderListResponse.from(orderPage);
+    }
+
+    @Override
+    public OrderResponse getOrderDetailBySeller(final Long orderId,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        Order order = orderRepository.findByIdAndSeller(orderId, seller);
+        return OrderResponse.from(order);
     }
 }

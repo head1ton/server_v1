@@ -42,6 +42,13 @@ public class OrderRepositoryImpl implements OrderRepository {
             SellerEntity.from(seller), MemberEntity.from(member));
     }
 
+    @Override
+    public Order findByIdAndSeller(final Long orderId, final Seller seller) {
+        return orderCustomJpaRepository.findByIdAndSeller(orderId, SellerEntity.from(seller))
+                                       .orElseThrow(
+                                           () -> new IllegalArgumentException("유효하지 않은 주문 번호입니다."));
+    }
+
 //    @Override
 //    public OrderVo findByIdAndSeller(final Long orderId, final Seller seller) {
 //        return orderCustomJpaRepository.findByIdAndSeller(orderId, SellerEntity.from(seller))

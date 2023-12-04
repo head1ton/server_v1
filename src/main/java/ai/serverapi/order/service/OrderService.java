@@ -5,6 +5,7 @@ import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
 import ai.serverapi.order.controller.response.OrderListResponse;
+import ai.serverapi.order.controller.response.OrderResponse;
 import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.controller.response.TempOrderResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,4 +31,6 @@ public interface OrderService {
 
     OrderListResponse getOrderListByMember(Pageable pageable, String search, String status,
         HttpServletRequest request);
+
+    OrderResponse getOrderDetailBySeller(Long orderId, HttpServletRequest request);
 }
