@@ -151,7 +151,8 @@ class OrderServiceTest {
         request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
         //when
         Pageable pageable = Pageable.ofSize(10);
-        OrderListResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
+        OrderListResponse complete = orderService.getOrderListBySeller(pageable, "",
+            OrderStatus.ORDERED.name(),
             request);
         //then
         assertThat(complete.getTotalElements()).isGreaterThan(0);
@@ -163,7 +164,8 @@ class OrderServiceTest {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
 
         Pageable pageable = Pageable.ofSize(10);
-        OrderListResponse complete = orderService.getOrderListByMember(pageable, "", "COMPLETE",
+        OrderListResponse complete = orderService.getOrderListByMember(pageable, "",
+            OrderStatus.ORDERED.name(),
             request);
 
         assertThat(complete.getTotalElements()).isGreaterThan(0);

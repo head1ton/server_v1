@@ -61,7 +61,7 @@ public class Order {
     }
 
     public void complete() {
-        this.status = OrderStatus.COMPLETE;
+        this.status = OrderStatus.PROCESSING;
     }
 
     public void cancel() {
