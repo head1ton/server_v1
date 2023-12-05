@@ -234,6 +234,7 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
 }
 
     @Override
+    @Transactional
     public void cancelOrderBySeller(final CancelOrderRequest cancelOrderRequest,
         final HttpServletRequest request) {
         Member member = memberUtil.getMember(request).toModel();
