@@ -232,6 +232,22 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
     order.checkOrder(member);
     return OrderResponse.from(order);
 }
+
+    @Override
+    public void cancelOrderBySeller(final CancelOrderRequest cancelOrderRequest,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        Order order = orderRepository.findByIdAndSeller(cancelOrderRequest.getOrderId(),
+            seller);
+
+        order.cancel();
+        orderRepository.save(order);
+
+        List<OrderItem> orderItemList = order.getOrderItemList();
+        orderItemList.forEach(orderItem -> orderItem.cancel());
+        orderItemRepository.saveAll(orderItemList);
+    }
 //
 //    @Override
 //    public OrderVo getOrderDetailBySeller(final Long orderId,
