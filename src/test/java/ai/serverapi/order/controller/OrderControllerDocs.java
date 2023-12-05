@@ -24,22 +24,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import ai.serverapi.RestdocsBaseTest;
 import ai.serverapi.member.domain.entity.MemberEntity;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.domain.entity.OrderEntity;
-import ai.serverapi.order.repository.DeliveryJpaRepository;
-import ai.serverapi.order.repository.OrderItemJpaRepository;
-import ai.serverapi.order.repository.OrderJpaRepository;
-import ai.serverapi.order.repository.OrderOptionJpaRepository;
-import ai.serverapi.order.repository.OrderProductJpaRepository;
-import ai.serverapi.product.repository.CategoryJpaRepository;
-import ai.serverapi.product.repository.OptionJpaRepository;
-import ai.serverapi.product.repository.ProductJpaRepository;
-import ai.serverapi.product.repository.SellerJpaRepository;
+import ai.serverapi.order.domain.model.Order;
+import ai.serverapi.order.port.DeliveryJpaRepository;
+import ai.serverapi.order.port.OrderItemJpaRepository;
+import ai.serverapi.order.port.OrderJpaRepository;
+import ai.serverapi.order.port.OrderOptionJpaRepository;
+import ai.serverapi.order.port.OrderProductJpaRepository;
+import ai.serverapi.product.port.CategoryJpaRepository;
+import ai.serverapi.product.port.OptionJpaRepository;
+import ai.serverapi.product.port.ProductJpaRepository;
+import ai.serverapi.product.port.SellerJpaRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -284,7 +285,11 @@ class OrderControllerDocs extends RestdocsBaseTest {
     void complete() throws Exception {
         //given
         MemberEntity memberEntity = memberJpaRepository.findByEmail(MEMBER_EMAIL).get();
-        OrderEntity orderEntity = orderJpaRepository.save(OrderEntity.of(memberEntity, "테스트 상품"));
+        Order order = Order.builder()
+                           .member(memberEntity.toModel())
+                           .orderName("테스트 상품")
+                           .build();
+        OrderEntity orderEntity = orderJpaRepository.save(OrderEntity.from(order));
         Long orderId = orderEntity.getId();
         CompleteOrderRequest completeOrderRequest = CompleteOrderRequest.builder()
                                                                         .orderId(orderId)

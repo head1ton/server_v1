@@ -2,7 +2,7 @@ package ai.serverapi.global.util;
 
 import ai.serverapi.global.security.TokenProvider;
 import ai.serverapi.member.domain.entity.MemberEntity;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

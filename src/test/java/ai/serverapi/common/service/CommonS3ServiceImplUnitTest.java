@@ -10,7 +10,7 @@ import ai.serverapi.global.s3.S3Service;
 import ai.serverapi.global.security.TokenProvider;
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.enums.MemberRole;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
