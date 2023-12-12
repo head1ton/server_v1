@@ -13,6 +13,7 @@ import ai.serverapi.member.port.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
+import ai.serverapi.order.controller.request.ProcessingOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
@@ -232,5 +233,24 @@ class OrderServiceTest {
 
         orderEntity.getOrderItemList().forEach(orderItemEntity -> assertThat(
             orderItemEntity.getStatus()).isEqualTo(OrderItemStatus.CANCEL));
+    }
+
+    @Test
+    @DisplayName("주문 확인, 상품 준비중 성공 by Seller")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void processingOrder() {
+        request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
+        ProcessingOrderRequest processingOrderRequest = ProcessingOrderRequest.builder().orderId(
+            ORDER_FIRST_ID).build();
+
+        orderService.processingOrder(processingOrderRequest, request);
+
+        OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
+        assertThat(orderEntity.getStatus()).isEqualTo(OrderStatus.PROCESSING);
+        orderEntity.getOrderItemList().forEach(orderItemEntity ->
+            assertThat(orderItemEntity.getStatus()).isEqualTo(OrderItemStatus.PROCESSING));
     }
 }

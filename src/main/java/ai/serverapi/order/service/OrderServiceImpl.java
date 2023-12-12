@@ -4,6 +4,7 @@ import ai.serverapi.global.util.MemberUtil;
 import ai.serverapi.member.domain.model.Member;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
+import ai.serverapi.order.controller.request.ProcessingOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
@@ -249,7 +250,9 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
         orderItemList.forEach(orderItem -> orderItem.cancel());
         orderItemRepository.saveAll(orderItemList);
     }
-//
+
+
+    //
 //    @Override
 //    public OrderVo getOrderDetailBySeller(final Long orderId,
 //        final HttpServletRequest request) {
@@ -259,7 +262,6 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
 //
 //        return order;
 //    }
-
     @Override
     @Transactional
     public void cancelOrder(final CancelOrderRequest cancelOrderRequest,
@@ -272,6 +274,21 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
 
         List<OrderItem> orderItemList = order.getOrderItemList();
         orderItemList.forEach(OrderItem::cancel);
+        orderItemRepository.saveAll(orderItemList);
+    }
+
+    @Override
+    public void processingOrder(final ProcessingOrderRequest processingOrderRequest,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        Order order = orderRepository.findByIdAndSeller(processingOrderRequest.getOrderId(),
+            seller);
+        order.processing();
+        orderRepository.save(order);
+
+        List<OrderItem> orderItemList = order.getOrderItemList();
+        orderItemList.forEach(orderItem -> orderItem.processing());
         orderItemRepository.saveAll(orderItemList);
     }
 
