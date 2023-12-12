@@ -86,4 +86,17 @@ public class OrderTest {
         assertThat(order.getStatus()).isEqualTo(OrderStatus.CANCEL);
     }
 
+    @Test
+    @DisplayName("주문 상태가 이미 진행중으로 넘어가서 주문 취소 실패")
+    void orderFail1() {
+        Order order = Order.builder()
+                           .status(OrderStatus.PROCESSING)
+                           .orderName("테스트 주문")
+                           .build();
+
+        assertThatThrownBy(() -> order.cancel())
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("주문이 이미 진행되었습니다.");
+    }
+
 }

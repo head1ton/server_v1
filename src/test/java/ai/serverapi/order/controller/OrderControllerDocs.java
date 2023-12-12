@@ -447,6 +447,8 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath("data.list[].status").description("주문 상태").type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].order_name").description("주문 이름")
                                                        .type(JsonFieldType.STRING),
+                fieldWithPath("data.list[].total_price").description("주문 총금액")
+                                                        .type(JsonFieldType.NUMBER),
                 fieldWithPath("data.list[].created_at").description("주문 등록일")
                                                        .type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].modified_at").description("주문 수정일")
@@ -504,6 +506,8 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath(
                     "data.list[].order_item_list[].order_product.order_product_id").description(
                     "주문 상품 ID").type(JsonFieldType.NUMBER),
+                fieldWithPath("data.list[].order_item_list[].order_product.product_id").description(
+                    "주문 상품 original ID").type(JsonFieldType.NUMBER),
                 fieldWithPath("data.list[].order_item_list[].order_product.product_id").description(
                     "상품 ID").type(JsonFieldType.NUMBER),
                 fieldWithPath(
@@ -657,6 +661,8 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath("data.list[].status").description("주문 상태").type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].order_name").description("주문 이름")
                                                        .type(JsonFieldType.STRING),
+                fieldWithPath("data.list[].total_price").description("주문 총금액")
+                                                        .type(JsonFieldType.NUMBER),
                 fieldWithPath("data.list[].created_at").description("주문 등록일")
                                                        .type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].modified_at").description("주문 수정일")
