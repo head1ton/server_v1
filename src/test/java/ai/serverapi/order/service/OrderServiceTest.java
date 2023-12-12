@@ -155,7 +155,7 @@ class OrderServiceTest {
             OrderStatus.ORDERED.name(),
             request);
         //then
-        assertThat(complete.getTotalElements()).isGreaterThan(0);
+        assertThat(complete.getTotalElements()).isGreaterThan(0L);
     }
 
     @Test
@@ -168,7 +168,7 @@ class OrderServiceTest {
             OrderStatus.ORDERED.name(),
             request);
 
-        assertThat(complete.getTotalElements()).isGreaterThan(0);
+        assertThat(complete.getTotalElements()).isGreaterThan(0L);
     }
 
     @Test

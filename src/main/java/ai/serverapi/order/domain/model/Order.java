@@ -60,8 +60,8 @@ public class Order {
         }
     }
 
-    public void complete() {
-        this.status = OrderStatus.PROCESSING;
+    public void ordered() {
+        this.status = OrderStatus.ORDERED;
     }
 
     public void cancel() {
