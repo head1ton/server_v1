@@ -122,16 +122,16 @@ public class OrderEntity {
                     .build();
     }
 
-    public void statusComplete() {
-        this.status = OrderStatus.COMPLETE;
-        this.modifiedAt = LocalDateTime.now();
-    }
+//    public void statusComplete() {
+//        this.status = OrderStatus.COMPLETE;
+//        this.modifiedAt = LocalDateTime.now();
+//    }
 
-    public void orderNumber(final String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
+//    public void orderNumber(final String orderNumber) {
+//        this.orderNumber = orderNumber;
+//    }
 
-    public void addOrderItem(OrderItemEntity orderItemEntity) {
-        this.orderItemList.add(orderItemEntity);
-    }
+//    public void addOrderItem(OrderItemEntity orderItemEntity) {
+//        this.orderItemList.add(orderItemEntity);
+//    }
 }

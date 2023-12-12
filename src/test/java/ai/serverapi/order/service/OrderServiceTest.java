@@ -9,7 +9,7 @@ import static ai.serverapi.OrderBase.ORDER_FIRST_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
@@ -22,13 +22,13 @@ import ai.serverapi.order.controller.response.PostTempOrderResponse;
 import ai.serverapi.order.domain.entity.OrderEntity;
 import ai.serverapi.order.enums.OrderItemStatus;
 import ai.serverapi.order.enums.OrderStatus;
-import ai.serverapi.order.repository.DeliveryJpaRepository;
-import ai.serverapi.order.repository.OrderItemJpaRepository;
-import ai.serverapi.order.repository.OrderJpaRepository;
-import ai.serverapi.product.repository.CategoryJpaRepository;
-import ai.serverapi.product.repository.OptionJpaRepository;
-import ai.serverapi.product.repository.ProductJpaRepository;
-import ai.serverapi.product.repository.SellerJpaRepository;
+import ai.serverapi.order.port.DeliveryJpaRepository;
+import ai.serverapi.order.port.OrderItemJpaRepository;
+import ai.serverapi.order.port.OrderJpaRepository;
+import ai.serverapi.product.port.CategoryJpaRepository;
+import ai.serverapi.product.port.OptionJpaRepository;
+import ai.serverapi.product.port.ProductJpaRepository;
+import ai.serverapi.product.port.SellerJpaRepository;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -151,7 +151,8 @@ class OrderServiceTest {
         request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
         //when
         Pageable pageable = Pageable.ofSize(10);
-        OrderListResponse complete = orderService.getOrderListBySeller(pageable, "", "COMPLETE",
+        OrderListResponse complete = orderService.getOrderListBySeller(pageable, "",
+            OrderStatus.ORDERED.name(),
             request);
         //then
         assertThat(complete.getTotalElements()).isGreaterThan(0);
@@ -163,7 +164,8 @@ class OrderServiceTest {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
 
         Pageable pageable = Pageable.ofSize(10);
-        OrderListResponse complete = orderService.getOrderListByMember(pageable, "", "COMPLETE",
+        OrderListResponse complete = orderService.getOrderListByMember(pageable, "",
+            OrderStatus.ORDERED.name(),
             request);
 
         assertThat(complete.getTotalElements()).isGreaterThan(0);
@@ -202,11 +204,29 @@ class OrderServiceTest {
     @DisplayName("주문 취소 성공")
     void cancelOrder() {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
-        OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
+
         CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
                                                                   .build();
 
         orderService.cancelOrder(cancelOrderRequest, request);
+        OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
+
+        assertThat(orderEntity.getStatus()).isEqualTo(OrderStatus.CANCEL);
+
+        orderEntity.getOrderItemList().forEach(orderItemEntity -> assertThat(
+            orderItemEntity.getStatus()).isEqualTo(OrderItemStatus.CANCEL));
+    }
+
+    @Test
+    @DisplayName("주문 취소 성공 by Seller")
+    void cancelOrderBySeller() {
+        request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
+
+        CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
+                                                                  .build();
+
+        orderService.cancelOrderBySeller(cancelOrderRequest, request);
+        OrderEntity orderEntity = orderJpaRepository.findById(ORDER_FIRST_ID).get();
 
         assertThat(orderEntity.getStatus()).isEqualTo(OrderStatus.CANCEL);
 

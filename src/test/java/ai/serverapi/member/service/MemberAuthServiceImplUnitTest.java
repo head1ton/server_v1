@@ -14,7 +14,7 @@ import ai.serverapi.member.controller.response.LoginResponse;
 import ai.serverapi.member.controller.response.kakao.KakaoLoginResponse;
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.enums.SnsJoinType;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import io.jsonwebtoken.Jwts;
 import java.util.Collection;
 import java.util.HashMap;

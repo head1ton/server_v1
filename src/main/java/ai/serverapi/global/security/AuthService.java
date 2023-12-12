@@ -2,7 +2,7 @@ package ai.serverapi.global.security;
 
 import ai.serverapi.member.domain.entity.MemberEntity;
 import ai.serverapi.member.enums.MemberRole;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

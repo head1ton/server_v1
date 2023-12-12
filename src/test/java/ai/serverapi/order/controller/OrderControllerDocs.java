@@ -24,22 +24,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import ai.serverapi.RestdocsBaseTest;
 import ai.serverapi.member.domain.entity.MemberEntity;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.domain.entity.OrderEntity;
-import ai.serverapi.order.repository.DeliveryJpaRepository;
-import ai.serverapi.order.repository.OrderItemJpaRepository;
-import ai.serverapi.order.repository.OrderJpaRepository;
-import ai.serverapi.order.repository.OrderOptionJpaRepository;
-import ai.serverapi.order.repository.OrderProductJpaRepository;
-import ai.serverapi.product.repository.CategoryJpaRepository;
-import ai.serverapi.product.repository.OptionJpaRepository;
-import ai.serverapi.product.repository.ProductJpaRepository;
-import ai.serverapi.product.repository.SellerJpaRepository;
+import ai.serverapi.order.domain.model.Order;
+import ai.serverapi.order.enums.OrderStatus;
+import ai.serverapi.order.port.DeliveryJpaRepository;
+import ai.serverapi.order.port.OrderItemJpaRepository;
+import ai.serverapi.order.port.OrderJpaRepository;
+import ai.serverapi.order.port.OrderOptionJpaRepository;
+import ai.serverapi.order.port.OrderProductJpaRepository;
+import ai.serverapi.product.port.CategoryJpaRepository;
+import ai.serverapi.product.port.OptionJpaRepository;
+import ai.serverapi.product.port.ProductJpaRepository;
+import ai.serverapi.product.port.SellerJpaRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -284,7 +286,11 @@ class OrderControllerDocs extends RestdocsBaseTest {
     void complete() throws Exception {
         //given
         MemberEntity memberEntity = memberJpaRepository.findByEmail(MEMBER_EMAIL).get();
-        OrderEntity orderEntity = orderJpaRepository.save(OrderEntity.of(memberEntity, "테스트 상품"));
+        Order order = Order.builder()
+                           .member(memberEntity.toModel())
+                           .orderName("테스트 상품")
+                           .build();
+        OrderEntity orderEntity = orderJpaRepository.save(OrderEntity.from(order));
         Long orderId = orderEntity.getId();
         CompleteOrderRequest completeOrderRequest = CompleteOrderRequest.builder()
                                                                         .orderId(orderId)
@@ -364,6 +370,35 @@ class OrderControllerDocs extends RestdocsBaseTest {
         ));
     }
 
+    @Test
+    @DisplayName(PREFIX + "/seller/cancel (PATCH)")
+    void cancelOrderBySeller() throws Exception {
+        //given
+        CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
+                                                                  .build();
+        //when
+        ResultActions perform = mock.perform(
+            patch(PREFIX + "/seller/cancel")
+                .header(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(cancelOrderRequest))
+        );
+        //then
+        perform.andDo(docs.document(
+            requestHeaders(
+                headerWithName(AUTHORIZATION).description("access token (MEMBER 권한 이상)")
+            ),
+            requestFields(
+                fieldWithPath("order_id").description("주문 id").type(JsonFieldType.NUMBER)
+            ),
+            responseFields(
+                fieldWithPath("code").type(JsonFieldType.STRING).description("결과 코드"),
+                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                fieldWithPath("data.message").type(JsonFieldType.STRING).description("결과 메세지")
+            )
+        ));
+    }
+
 
     @Test
     @SqlGroup({
@@ -380,7 +415,7 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 .param("search", "")
                 .param("page", "0")
                 .param("size", "5")
-                .param("status", "complete")
+                .param("status", OrderStatus.ORDERED.name())
         );
         //then
         perform.andDo(docs.document(
@@ -391,7 +426,8 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 parameterWithName("search").description("검색어").optional(),
                 parameterWithName("page").description("페이지 (기본값 0)").optional(),
                 parameterWithName("size").description("페이지 크기 (기본값 10)").optional(),
-                parameterWithName("status").description("상태값  (TEMP : 임시, COMPLETE : 완료)")
+                parameterWithName("status").description(
+                                               "상태값  (TEMP : 임시, / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
                                            .optional()
             ),
             responseFields(
@@ -589,7 +625,7 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 .param("search", "")
                 .param("page", "0")
                 .param("size", "5")
-                .param("status", "complete")
+                .param("status", OrderStatus.ORDERED.name())
         );
 
         perform.andDo(docs.document(
@@ -600,7 +636,9 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 parameterWithName("search").description("검색어").optional(),
                 parameterWithName("page").description("페이지 (기본값 0)").optional(),
                 parameterWithName("size").description("페이지 크기 (기본값 10)").optional(),
-                parameterWithName("status").description("상태값 (TEMP : 임시, COMPLETE : 완료)").optional()
+                parameterWithName("status").description(
+                                               "상태값 (TEMP : 임시 / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
+                                           .optional()
             ),
             responseFields(
                 fieldWithPath("code").type(JsonFieldType.STRING).description("결과 코드"),
@@ -1144,4 +1182,6 @@ class OrderControllerDocs extends RestdocsBaseTest {
             )
         ));
     }
+
+
 }

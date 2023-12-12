@@ -3,7 +3,7 @@ package ai.serverapi.common.service;
 import ai.serverapi.common.dto.response.UploadResponse;
 import ai.serverapi.global.s3.S3Service;
 import ai.serverapi.global.security.TokenProvider;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

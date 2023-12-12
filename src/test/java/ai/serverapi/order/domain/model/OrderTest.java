@@ -77,7 +77,7 @@ public class OrderTest {
     @DisplayName("주문 취소 성공")
     void cancel() {
         Order order = Order.builder()
-                           .status(OrderStatus.ORDER)
+                           .status(OrderStatus.ORDERED)
                            .orderName("테스트 주문")
                            .build();
 

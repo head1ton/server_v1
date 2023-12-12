@@ -8,7 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import ai.serverapi.RestdocsBaseTest;
 import ai.serverapi.member.controller.request.JoinRequest;
 import ai.serverapi.member.domain.entity.MemberEntity;
-import ai.serverapi.member.repository.MemberJpaRepository;
+import ai.serverapi.member.port.MemberJpaRepository;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
