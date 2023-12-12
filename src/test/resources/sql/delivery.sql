@@ -8,4 +8,5 @@ VALUES (1, '2023-10-01 21:42:09.649146', '2023-10-01 21:42:09.649146', '자혜�
 UPDATE orders
 SET order_number = 'ORDER-20991231-1'
   , delivery_id  = 1
+  , status = 'ORDERED'
 WHERE order_id = 1;

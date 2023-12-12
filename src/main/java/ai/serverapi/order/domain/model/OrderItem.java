@@ -79,6 +79,10 @@ public class OrderItem {
         this.status = OrderItemStatus.CANCEL;
     }
 
+    public void processing() {
+        this.status = OrderItemStatus.PROCESSING;
+    }
+
     public OrderItemResponse toResponse() {
         return OrderItemResponse.builder()
                                 .orderItemId(id)
