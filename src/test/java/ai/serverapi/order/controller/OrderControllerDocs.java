@@ -283,11 +283,16 @@ class OrderControllerDocs extends RestdocsBaseTest {
     }
     @Test
     @DisplayName(PREFIX + "/complete (PATCH)")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void complete() throws Exception {
         //given
         MemberEntity memberEntity = memberJpaRepository.findByEmail(MEMBER_EMAIL).get();
         Order order = Order.builder()
                            .member(memberEntity.toModel())
+                           .status(OrderStatus.TEMP)
                            .orderName("테스트 상품")
                            .build();
         OrderEntity orderEntity = orderJpaRepository.save(OrderEntity.from(order));
@@ -343,6 +348,10 @@ class OrderControllerDocs extends RestdocsBaseTest {
     }
     @Test
     @DisplayName(PREFIX + "/member/cancel (PATCH)")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void cancelOrder() throws Exception {
         //given
         CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
@@ -372,6 +381,10 @@ class OrderControllerDocs extends RestdocsBaseTest {
 
     @Test
     @DisplayName(PREFIX + "/seller/cancel (PATCH)")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void cancelOrderBySeller() throws Exception {
         //given
         CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
@@ -427,7 +440,7 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 parameterWithName("page").description("페이지 (기본값 0)").optional(),
                 parameterWithName("size").description("페이지 크기 (기본값 10)").optional(),
                 parameterWithName("status").description(
-                                               "상태값  (TEMP : 임시, / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
+                                               "상태값  (TEMP : 임시 / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
                                            .optional()
             ),
             responseFields(
@@ -447,8 +460,6 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath("data.list[].status").description("주문 상태").type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].order_name").description("주문 이름")
                                                        .type(JsonFieldType.STRING),
-                fieldWithPath("data.list[].total_price").description("주문 총금액")
-                                                        .type(JsonFieldType.NUMBER),
                 fieldWithPath("data.list[].created_at").description("주문 등록일")
                                                        .type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].modified_at").description("주문 수정일")
@@ -623,6 +634,8 @@ class OrderControllerDocs extends RestdocsBaseTest {
     })
     @DisplayName(PREFIX + "/member (GET)")
     void getOrderByMember() throws Exception {
+        //given
+        //when
         ResultActions perform = mock.perform(
             get(PREFIX + "/member")
                 .header(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken())
@@ -631,7 +644,7 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 .param("size", "5")
                 .param("status", OrderStatus.ORDERED.name())
         );
-
+        //then
         perform.andDo(docs.document(
             requestHeaders(
                 headerWithName(AUTHORIZATION).description("access token (MEMBER 권한 이상)")
@@ -641,7 +654,7 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 parameterWithName("page").description("페이지 (기본값 0)").optional(),
                 parameterWithName("size").description("페이지 크기 (기본값 10)").optional(),
                 parameterWithName("status").description(
-                                               "상태값 (TEMP : 임시 / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
+                                               "상태값  (TEMP : 임시 / ORDERED : 주문완료 / CANCEL : 취소 / PROCESSING : 주문확인, 상품준비중 / CONFIRM : 배송완료, 발송완료)")
                                            .optional()
             ),
             responseFields(
@@ -661,8 +674,6 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath("data.list[].status").description("주문 상태").type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].order_name").description("주문 이름")
                                                        .type(JsonFieldType.STRING),
-                fieldWithPath("data.list[].total_price").description("주문 총금액")
-                                                        .type(JsonFieldType.NUMBER),
                 fieldWithPath("data.list[].created_at").description("주문 등록일")
                                                        .type(JsonFieldType.STRING),
                 fieldWithPath("data.list[].modified_at").description("주문 수정일")
@@ -1189,5 +1200,37 @@ class OrderControllerDocs extends RestdocsBaseTest {
         ));
     }
 
+    @Test
+    @DisplayName(PREFIX + "/seller/processing (PATCH)")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void processingOrder() throws Exception {
+        //given
+        CancelOrderRequest cancelOrderRequest = CancelOrderRequest.builder().orderId(ORDER_FIRST_ID)
+                                                                  .build();
+        //when
+        ResultActions perform = mock.perform(
+            patch(PREFIX + "/seller/processing")
+                .header(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(cancelOrderRequest))
+        );
+        //then
+        perform.andDo(docs.document(
+            requestHeaders(
+                headerWithName(AUTHORIZATION).description("access token (SELLER 권한 이상)")
+            ),
+            requestFields(
+                fieldWithPath("order_id").description("주문 id").type(JsonFieldType.NUMBER)
+            ),
+            responseFields(
+                fieldWithPath("code").type(JsonFieldType.STRING).description("결과 코드"),
+                fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                fieldWithPath("data.message").type(JsonFieldType.STRING).description("결과 메세지")
+            )
+        ));
+    }
 
 }

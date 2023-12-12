@@ -3,7 +3,7 @@
 INSERT INTO orders
 (order_id, created_at, modified_at, order_name, status, member_id, order_number)
 VALUES (1, '2023-11-07 22:29:38.493615000', '2023-11-07 22:29:38.493650000', '메인 타이틀 외 1개',
-        'ORDERED', 1, 'ORDER-20231107-72');
+        'TEMP', 1, 'ORDER-20231107-72');
 
 INSERT INTO order_product
 (order_product_id, created_at, image1, image2, image3, main_explanation, main_image, main_title,

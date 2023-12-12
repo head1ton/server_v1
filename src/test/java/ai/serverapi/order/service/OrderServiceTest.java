@@ -146,8 +146,11 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("관리자툴에서 주문 불러오기 성공")
-    @Transactional
-    void getOrderList() {
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void getOrderListBySeller() {
         //given
         request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
         //when
@@ -161,6 +164,10 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("사용자 주문 불러오기 성공")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void getOrderListByMember() {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
 
@@ -203,6 +210,10 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("주문 취소 성공")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void cancelOrder() {
         request.addHeader(AUTHORIZATION, "Bearer " + MEMBER_LOGIN.getAccessToken());
 
@@ -220,6 +231,10 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("주문 취소 성공 by Seller")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
     void cancelOrderBySeller() {
         request.addHeader(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken());
 
