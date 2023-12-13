@@ -5,6 +5,7 @@ import ai.serverapi.global.base.MessageVo;
 import ai.serverapi.global.base.ResultCode;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
+import ai.serverapi.order.controller.request.ConfirmOrderRequest;
 import ai.serverapi.order.controller.request.ProcessingOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.controller.response.CompleteOrderResponse;
@@ -151,6 +152,17 @@ public class OrderController {
         @RequestBody @Validated ProcessingOrderRequest processingOrderRequest,
         HttpServletRequest request) {
         orderService.processingOrder(processingOrderRequest, request);
+        return ResponseEntity.ok(
+            new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
+                MessageVo.builder().message("주문 상태가 변경되었습니다.").build())
+        );
+    }
+
+    @PatchMapping("/seller/confirm")
+    public ResponseEntity<Api<MessageVo>> confirmOrder(
+        @RequestBody @Validated ConfirmOrderRequest confirmOrderRequest,
+        HttpServletRequest request) {
+        orderService.confirmOrder(confirmOrderRequest, request);
         return ResponseEntity.ok(
             new Api<>(ResultCode.SUCCESS.code, ResultCode.SUCCESS.message,
                 MessageVo.builder().message("주문 상태가 변경되었습니다.").build())

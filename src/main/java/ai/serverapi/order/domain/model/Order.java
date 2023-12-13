@@ -76,7 +76,7 @@ public class Order {
 
     public void confirm() {
         if (this.status != OrderStatus.PROCESSING) {
-            throw new IllegalArgumentException("상품준비중만 발송/배송완료으로 변경이 가능합니다.");
+            throw new IllegalArgumentException("상품 준비중만 발송/배송완료으로 변경이 가능합니다.");
         }
         this.status = OrderStatus.CONFIRM;
     }

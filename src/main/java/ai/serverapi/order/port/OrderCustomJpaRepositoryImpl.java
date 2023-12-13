@@ -39,7 +39,7 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
 
         BooleanBuilder builder = new BooleanBuilder();
 
-        builder.and(order.status.eq(OrderStatus.COMPLETE));
+        builder.and(orderProduct.seller.id.eq(sellerEntity.getId()));
 
         if (status != null) {
             builder.and(order.status.eq(status));
@@ -93,7 +93,7 @@ public class OrderCustomJpaRepositoryImpl implements OrderCustomJpaRepository {
 
         BooleanBuilder builder = new BooleanBuilder();
 
-        builder.and(order.status.eq(OrderStatus.COMPLETE));
+        builder.and(order.member.id.eq(memberEntity.getId()));
 
         if (status != null) {
             builder.and(order.status.eq(status));
