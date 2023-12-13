@@ -125,4 +125,17 @@ public class OrderTest {
             .hasMessageContaining("주문 완료만 상품준비중");
     }
 
+    @Test
+    @DisplayName("주문확인, 상품준비중 상태가 아니면 배송/발송 완료상태로 넘어가는데 실패")
+    void confirmFail1() {
+        Order order = Order.builder()
+                           .status(OrderStatus.ORDERED)
+                           .orderName("테스트 주문")
+                           .build();
+
+        assertThatThrownBy(() -> order.confirm())
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("상품 준비중");
+    }
+
 }
