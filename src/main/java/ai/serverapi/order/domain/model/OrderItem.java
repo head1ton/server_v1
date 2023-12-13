@@ -83,6 +83,10 @@ public class OrderItem {
         this.status = OrderItemStatus.PROCESSING;
     }
 
+    public void confirm() {
+        this.status = OrderItemStatus.CONFIRM;
+    }
+
     public OrderItemResponse toResponse() {
         return OrderItemResponse.builder()
                                 .orderItemId(id)

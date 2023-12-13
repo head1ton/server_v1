@@ -8,6 +8,7 @@ import static ai.serverapi.Base.PRODUCT_OPTION_ID_MASK;
 import static ai.serverapi.Base.PRODUCT_OPTION_ID_PEAR;
 import static ai.serverapi.Base.SELLER_LOGIN;
 import static ai.serverapi.OrderBase.ORDER_FIRST_ID;
+import static ai.serverapi.OrderBase.ORDER_SECOND_ID;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
@@ -28,6 +29,7 @@ import ai.serverapi.member.port.MemberJpaRepository;
 import ai.serverapi.member.service.MemberAuthServiceImpl;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
+import ai.serverapi.order.controller.request.ConfirmOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
 import ai.serverapi.order.domain.entity.OrderEntity;
@@ -1231,6 +1233,40 @@ class OrderControllerDocs extends RestdocsBaseTest {
                 fieldWithPath("data.message").type(JsonFieldType.STRING).description("결과 메세지")
             )
         ));
+    }
+
+    @Test
+    @DisplayName(PREFIX + "/seller/confirm (PATCH)")
+    @SqlGroup({
+        @Sql(scripts = {"/sql/init.sql", "/sql/product.sql", "/sql/order.sql",
+            "/sql/delivery.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD),
+    })
+    void confirmOrder() throws Exception {
+        ConfirmOrderRequest confirmOrderRequest = ConfirmOrderRequest.builder()
+                                                                     .orderId(ORDER_SECOND_ID)
+                                                                     .build();
+
+        ResultActions perform = mock.perform(
+            patch(PREFIX + "/seller/confirm")
+                .header(AUTHORIZATION, "Bearer " + SELLER_LOGIN.getAccessToken())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(confirmOrderRequest))
+        );
+
+        perform.andDo(docs.document(
+                requestHeaders(
+                    headerWithName(AUTHORIZATION).description("access token (SELLER 권한 이상)")
+                ),
+                requestFields(
+                    fieldWithPath("order_id").description("주문 id").type(JsonFieldType.NUMBER)
+                ),
+                responseFields(
+                    fieldWithPath("code").type(JsonFieldType.STRING).description("결과 코드"),
+                    fieldWithPath("message").type(JsonFieldType.STRING).description("결과 메세지"),
+                    fieldWithPath("data.message").type(JsonFieldType.STRING).description("결과 메세지")
+                )
+            )
+        );
     }
 
 }

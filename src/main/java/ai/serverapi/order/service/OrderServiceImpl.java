@@ -4,6 +4,7 @@ import ai.serverapi.global.util.MemberUtil;
 import ai.serverapi.member.domain.model.Member;
 import ai.serverapi.order.controller.request.CancelOrderRequest;
 import ai.serverapi.order.controller.request.CompleteOrderRequest;
+import ai.serverapi.order.controller.request.ConfirmOrderRequest;
 import ai.serverapi.order.controller.request.ProcessingOrderRequest;
 import ai.serverapi.order.controller.request.TempOrderDto;
 import ai.serverapi.order.controller.request.TempOrderRequest;
@@ -278,6 +279,7 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
     }
 
     @Override
+    @Transactional
     public void processingOrder(final ProcessingOrderRequest processingOrderRequest,
         final HttpServletRequest request) {
         Member member = memberUtil.getMember(request).toModel();
@@ -289,6 +291,21 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
 
         List<OrderItem> orderItemList = order.getOrderItemList();
         orderItemList.forEach(orderItem -> orderItem.processing());
+        orderItemRepository.saveAll(orderItemList);
+    }
+
+    @Override
+    @Transactional
+    public void confirmOrder(final ConfirmOrderRequest confirmOrderRequest,
+        final HttpServletRequest request) {
+        Member member = memberUtil.getMember(request).toModel();
+        Seller seller = sellerRepository.findByMember(member);
+        Order order = orderRepository.findByIdAndSeller(confirmOrderRequest.getOrderId(), seller);
+        order.confirm();
+        orderRepository.save(order);
+
+        List<OrderItem> orderItemList = order.getOrderItemList();
+        orderItemList.forEach(orderItem -> orderItem.confirm());
         orderItemRepository.saveAll(orderItemList);
     }
 
@@ -312,4 +329,6 @@ public OrderResponse getOrderDetailByMember(Long orderId, HttpServletRequest req
         Order order = orderRepository.findByIdAndSeller(orderId, seller);
         return OrderResponse.from(order);
     }
+
+
 }
